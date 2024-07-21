@@ -27,6 +27,7 @@ final class NarsilFormsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->bootBlueprints();
+        $this->bootMigrations();
     }
 
     /**
@@ -50,6 +51,16 @@ final class NarsilFormsServiceProvider extends ServiceProvider
         {
             OptionBlueprint::define($this, $column);
         });
+    }
+
+    /**
+     * @return void
+     */
+    private function bootMigrations(): void
+    {
+        $this->loadMigrationsFrom([
+            __DIR__ . '/../database/migrations',
+        ]);
     }
 
     #endregion
