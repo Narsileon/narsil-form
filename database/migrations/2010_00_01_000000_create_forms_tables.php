@@ -85,8 +85,9 @@ return new class extends Migration
                 ->constrained(Form::TABLE, Form::ID)
                 ->cascadeOnDelete();
             $table->foreignId(FormNode::PARENT_ID)
+                ->nullable()
                 ->constrained(FormNode::TABLE, FormNode::ID)
-                ->cascadeOnDelete();
+                ->nullOnDelete();
             $table->string(FormNode::NODE_TYPE);
             $table->trans(FormNode::LABEL);
             $table->trans(FormNode::DESCRIPTION);
