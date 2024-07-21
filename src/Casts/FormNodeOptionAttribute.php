@@ -1,6 +1,6 @@
 <?php
 
-namespace Narsil\NarsilFramework\Casts;
+namespace Narsil\Forms\Casts;
 
 #region USE
 
