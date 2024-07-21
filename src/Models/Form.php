@@ -7,6 +7,7 @@ namespace Narsil\Forms\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Narsil\Localization\Casts\TransAttribute;
 
 #endregion
 
@@ -27,6 +28,10 @@ class Form extends Model
     public function __construct(array $attributes = [])
     {
         $this->table = self::TABLE;
+
+        $this->casts = [
+            self::TITLE => TransAttribute::class,
+        ];
 
         $this->fillable = [
             self::OWNER_ID,
