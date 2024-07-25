@@ -1,8 +1,8 @@
-import { cn } from '@narsil-ui/Components';
-import { Label } from '@narsil-forms/Components';
-import * as LabelPrimitive from '@radix-ui/react-label';
-import * as React from 'react';
-import useFormField from './use-form-field';
+import { cn } from "@narsil-ui/Components";
+import { Label } from "@narsil-forms/Components";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import * as React from "react";
+import useFormField from "./use-form-field";
 
 const FormLabel = React.forwardRef<
 	React.ElementRef<typeof LabelPrimitive.Root>,
@@ -13,7 +13,7 @@ const FormLabel = React.forwardRef<
 	return (
 		<Label
 			ref={ref}
-			className={cn(error && 'text-destructive', className)}
+			className={cn(error && "text-destructive", className)}
 			htmlFor={formItemId}
 			{...props}
 		/>

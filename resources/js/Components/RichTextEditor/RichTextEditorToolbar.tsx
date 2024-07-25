@@ -1,4 +1,4 @@
-import { Editor } from '@tiptap/react';
+import { Editor } from "@tiptap/react";
 
 import {
 	AlignCenter,
@@ -26,7 +26,7 @@ import {
 	Superscript,
 	Underline,
 	Undo,
-} from 'lucide-react';
+} from "lucide-react";
 
 import {
 	Button,
@@ -39,7 +39,7 @@ import {
 	PopoverTrigger,
 	Separator,
 	Toggle,
-} from '@narsil-ui/Components';
+} from "@narsil-ui/Components";
 
 interface RichTextEditorToolbarProps {
 	editor: Editor | null;
@@ -51,29 +51,29 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 	}
 
 	const colors = [
-		'#000000', // black
-		'#EF4444', // red-500
-		'#F97316', // orange-500
-		'#F59E0B', // amber-500
-		'#EAB308', // yellow-500
-		'#84CC16', // lime-500
-		'#22C55E', // green-500
-		'#10B981', // emerald-500
-		'#14B8A6', // teal-500
-		'#06B6D4', // cyan-500
-		'#0EA5E9', // sky-500
-		'#3B82F6', // blue-500
-		'#6366F1', // indigo-500
-		'#8B5CF6', // violet-500
-		'#A855F7', // purple-500
-		'#FFFFFF', // white
+		"#000000", // black
+		"#EF4444", // red-500
+		"#F97316", // orange-500
+		"#F59E0B", // amber-500
+		"#EAB308", // yellow-500
+		"#84CC16", // lime-500
+		"#22C55E", // green-500
+		"#10B981", // emerald-500
+		"#14B8A6", // teal-500
+		"#06B6D4", // cyan-500
+		"#0EA5E9", // sky-500
+		"#3B82F6", // blue-500
+		"#6366F1", // indigo-500
+		"#8B5CF6", // violet-500
+		"#A855F7", // purple-500
+		"#FFFFFF", // white
 	];
 
 	return (
 		<div className='flex flex-wrap items-center'>
 			<Toggle
 				aria-label='Toggle bold'
-				pressed={editor.isActive('bold')}
+				pressed={editor.isActive("bold")}
 				onClick={() => editor.chain().focus().toggleBold().run()}
 			>
 				<Bold className='w-4 h-4' />
@@ -81,7 +81,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle italic'
-				pressed={editor.isActive('italic')}
+				pressed={editor.isActive("italic")}
 				onClick={() => editor.chain().focus().toggleItalic().run()}
 			>
 				<Italic className='w-4 h-4' />
@@ -89,7 +89,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle underline'
-				pressed={editor.isActive('underline')}
+				pressed={editor.isActive("underline")}
 				onClick={() => editor.chain().focus().toggleUnderline().run()}
 			>
 				<Underline className='w-4 h-4' />
@@ -97,7 +97,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle strike'
-				pressed={editor.isActive('strike')}
+				pressed={editor.isActive("strike")}
 				onClick={() => editor.chain().focus().toggleStrike().run()}
 			>
 				<Strikethrough className='w-4 h-4' />
@@ -116,7 +116,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					>
 						<Baseline
 							className='w-4 h-4'
-							color={editor.getAttributes('textStyle').color}
+							color={editor.getAttributes("textStyle").color}
 						/>
 					</Button>
 				</PopoverTrigger>
@@ -148,7 +148,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					>
 						<PencilLine
 							className='w-4 h-4'
-							color={editor.getAttributes('textStyle').highlight}
+							color={editor.getAttributes("textStyle").highlight}
 						/>
 					</Button>
 				</PopoverTrigger>
@@ -190,7 +190,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					<DropdownMenuItem asChild={true}>
 						<Toggle
 							aria-label='Toggle heading 1'
-							pressed={editor.isActive('heading', { level: 1 })}
+							pressed={editor.isActive("heading", { level: 1 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
 						>
 							<Heading1 className='w-4 h-4' />
@@ -199,7 +199,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					<DropdownMenuItem asChild={true}>
 						<Toggle
 							aria-label='Toggle heading 2'
-							pressed={editor.isActive('heading', { level: 2 })}
+							pressed={editor.isActive("heading", { level: 2 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
 						>
 							<Heading2 className='w-4 h-4' />
@@ -208,7 +208,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					<DropdownMenuItem asChild={true}>
 						<Toggle
 							aria-label='Toggle heading 3'
-							pressed={editor.isActive('heading', { level: 3 })}
+							pressed={editor.isActive("heading", { level: 3 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
 						>
 							<Heading3 className='w-4 h-4' />
@@ -217,7 +217,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					<DropdownMenuItem asChild={true}>
 						<Toggle
 							aria-label='Toggle heading 4'
-							pressed={editor.isActive('heading', { level: 4 })}
+							pressed={editor.isActive("heading", { level: 4 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
 						>
 							<Heading4 className='w-4 h-4' />
@@ -226,7 +226,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					<DropdownMenuItem asChild={true}>
 						<Toggle
 							aria-label='Toggle heading 5'
-							pressed={editor.isActive('heading', { level: 5 })}
+							pressed={editor.isActive("heading", { level: 5 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
 						>
 							<Heading5 className='w-4 h-4' />
@@ -235,7 +235,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					<DropdownMenuItem asChild={true}>
 						<Toggle
 							aria-label='Toggle heading 6'
-							pressed={editor.isActive('heading', { level: 6 })}
+							pressed={editor.isActive("heading", { level: 6 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
 						>
 							<Heading6 className='w-4 h-4' />
@@ -246,7 +246,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle superscript'
-				pressed={editor.isActive('superscript')}
+				pressed={editor.isActive("superscript")}
 				onClick={() => {
 					editor.chain().focus().unsetSubscript().run();
 					editor.chain().focus().toggleSuperscript().run();
@@ -257,7 +257,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle subscript'
-				pressed={editor.isActive('subscript')}
+				pressed={editor.isActive("subscript")}
 				onClick={() => {
 					editor.chain().focus().unsetSuperscript().run();
 					editor.chain().focus().toggleSubscript().run();
@@ -273,32 +273,32 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle align left'
-				pressed={editor.isActive({ textAlign: 'left' })}
-				onClick={() => editor.chain().focus().setTextAlign('left').run()}
+				pressed={editor.isActive({ textAlign: "left" })}
+				onClick={() => editor.chain().focus().setTextAlign("left").run()}
 			>
 				<AlignLeft className='w-4 h-4' />
 			</Toggle>
 
 			<Toggle
 				aria-label='Toggle align center'
-				pressed={editor.isActive({ textAlign: 'center' })}
-				onClick={() => editor.chain().focus().setTextAlign('center').run()}
+				pressed={editor.isActive({ textAlign: "center" })}
+				onClick={() => editor.chain().focus().setTextAlign("center").run()}
 			>
 				<AlignCenter className='w-4 h-4' />
 			</Toggle>
 
 			<Toggle
 				aria-label='Toggle align right'
-				pressed={editor.isActive({ textAlign: 'right' })}
-				onClick={() => editor.chain().focus().setTextAlign('right').run()}
+				pressed={editor.isActive({ textAlign: "right" })}
+				onClick={() => editor.chain().focus().setTextAlign("right").run()}
 			>
 				<AlignRight className='w-4 h-4' />
 			</Toggle>
 
 			<Toggle
 				aria-label='Toggle align justify'
-				pressed={editor.isActive({ textAlign: 'justify' })}
-				onClick={() => editor.chain().focus().setTextAlign('justify').run()}
+				pressed={editor.isActive({ textAlign: "justify" })}
+				onClick={() => editor.chain().focus().setTextAlign("justify").run()}
 			>
 				<AlignJustify className='w-4 h-4' />
 			</Toggle>
@@ -310,7 +310,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle list'
-				pressed={editor.isActive('bulletList')}
+				pressed={editor.isActive("bulletList")}
 				onClick={() => editor.chain().focus().toggleBulletList().run()}
 			>
 				<List className='w-4 h-4' />
@@ -318,7 +318,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle ordered list'
-				pressed={editor.isActive('orderedList')}
+				pressed={editor.isActive("orderedList")}
 				onClick={() => editor.chain().focus().toggleOrderedList().run()}
 			>
 				<ListOrdered className='w-4 h-4' />
@@ -331,7 +331,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle quote'
-				pressed={editor.isActive('blockquote')}
+				pressed={editor.isActive("blockquote")}
 				onClick={() => editor.chain().focus().toggleBlockquote().run()}
 			>
 				<Quote className='w-4 h-4' />
@@ -339,7 +339,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 
 			<Toggle
 				aria-label='Toggle code'
-				pressed={editor.isActive('codeBlock')}
+				pressed={editor.isActive("codeBlock")}
 				onClick={() => editor.chain().focus().toggleCodeBlock().run()}
 			>
 				<Code className='w-4 h-4' />

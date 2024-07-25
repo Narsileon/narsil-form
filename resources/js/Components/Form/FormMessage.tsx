@@ -1,6 +1,6 @@
-import { cn } from '@narsil-ui/Components';
-import * as React from 'react';
-import useFormField from './use-form-field';
+import { cn } from "@narsil-ui/Components";
+import * as React from "react";
+import useFormField from "./use-form-field";
 
 const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
 	({ className, children, ...props }, ref) => {
@@ -15,7 +15,7 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<
 			<p
 				ref={ref}
 				id={formMessageId}
-				className={cn('text-sm font-medium text-destructive', className)}
+				className={cn("text-sm font-medium text-destructive", className)}
 				{...props}
 			>
 				{body}
