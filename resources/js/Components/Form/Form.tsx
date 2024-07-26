@@ -1,9 +1,9 @@
 import { cn } from "@narsil-ui/Components";
-import { FormProvider, FormProviderProps } from "react-hook-form";
 import { router } from "@inertiajs/react";
+import { useFormContext } from "react-hook-form";
 import * as React from "react";
 
-interface FormProps extends FormProviderProps {
+export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
 	className?: string;
 	method?: "patch" | "post";
 	route: string;
@@ -11,7 +11,9 @@ interface FormProps extends FormProviderProps {
 }
 
 const Form = React.forwardRef<HTMLFormElement, FormProps>(
-	({ className, children, method = "post", route, submitParameters = {}, ...form }, ref) => {
+	({ className, children, method = "post", route, submitParameters = {}, ...props }, ref) => {
+		const form = useFormContext();
+
 		const onSubmit = async (values: any) => {
 			submitParameters = {
 				onError: (errors: Record<string, string>) => {
@@ -38,15 +40,14 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
 		};
 
 		return (
-			<FormProvider {...form}>
-				<form
-					className={cn("w-full space-y-4", className)}
-					ref={ref}
-					onSubmit={form.handleSubmit(onSubmit)}
-				>
-					{children}
-				</form>
-			</FormProvider>
+			<form
+				ref={ref}
+				className={cn("w-full space-y-4", className)}
+				onSubmit={form.handleSubmit(onSubmit)}
+				{...props}
+			>
+				{children}
+			</form>
 		);
 	}
 );
