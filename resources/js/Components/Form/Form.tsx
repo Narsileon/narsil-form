@@ -7,7 +7,10 @@ export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
 	className?: string;
 	method?: "patch" | "post";
 	route: string;
-	submitParameters?: any;
+	submitParameters?: {
+		onError?: (errors: Record<string, string>) => void;
+		onSuccess?: () => void;
+	};
 }
 
 const Form = React.forwardRef<HTMLFormElement, FormProps>(
@@ -16,7 +19,7 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
 
 		const onSubmit = async (values: any) => {
 			submitParameters = {
-				onError: (errors: Record<string, string>) => {
+				onError: (errors) => {
 					Object.entries(errors).map(([attribute, error]) => {
 						form.setError(attribute, {
 							type: "server",
