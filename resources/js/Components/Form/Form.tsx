@@ -1,6 +1,6 @@
 import { cn } from "@narsil-ui/Components";
 import { router } from "@inertiajs/react";
-import { useFormContext } from "react-hook-form";
+import { FieldValues, useFormContext } from "react-hook-form";
 import * as React from "react";
 
 export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
@@ -17,7 +17,7 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
 	({ className, children, method = "post", route, submitParameters = {}, ...props }, ref) => {
 		const form = useFormContext();
 
-		const onSubmit = async (values: any) => {
+		const onSubmit = async (values: FieldValues) => {
 			submitParameters = {
 				onError: (errors) => {
 					Object.entries(errors).map(([attribute, error]) => {
