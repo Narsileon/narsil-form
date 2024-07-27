@@ -17,7 +17,7 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
 	({ className, children, method = "post", route, submitParameters = {}, ...props }, ref) => {
 		const form = useFormContext();
 
-		const onSubmit = async (values: FieldValues) => {
+		const onValid = async (values: FieldValues) => {
 			submitParameters = {
 				onError: (errors) => {
 					Object.entries(errors).map(([attribute, error]) => {
@@ -46,7 +46,10 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
 			<form
 				ref={ref}
 				className={cn("w-full space-y-4", className)}
-				onSubmit={form.handleSubmit(onSubmit)}
+				onSubmit={(event) => {
+					event.stopPropagation();
+					form.handleSubmit(onValid)(event);
+				}}
 				{...props}
 			>
 				{children}
