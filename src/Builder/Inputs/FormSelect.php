@@ -30,7 +30,30 @@ class FormSelect extends FormInput
 
     #endregion
 
+    #region CONSTANTS
+
+    /**
+     * @var string
+     */
+    private const FETCH = 'fetch';
+
+    #endregion
+
     #region PUBLIC METHODS
+
+    /**
+     * Sets the fetch attribute.
+     *
+     * @param string $fetch
+     *
+     * @return static Returns the current object instance.
+     */
+    final public function fetch(string $fetch): static
+    {
+        $this->formNode[self::FETCH] = $fetch;
+
+        return $this;
+    }
 
     /**
      * Sets the options attribute.
