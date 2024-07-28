@@ -23,7 +23,7 @@ final class FormService
      *
      * @return string|null
      */
-    public function guessFormName(string $modelClass): string|null
+    public static function guessFormName(string $modelClass): string|null
     {
         $classBaseName = class_basename($modelClass);
 
