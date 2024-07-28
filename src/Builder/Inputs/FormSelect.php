@@ -42,7 +42,7 @@ class FormSelect extends FormInput
     #region PUBLIC METHODS
 
     /**
-     * Sets the fetch attribute.
+     * Sets the fetch parameter.
      *
      * @param string $fetch
      *
@@ -50,7 +50,9 @@ class FormSelect extends FormInput
      */
     final public function fetch(string $fetch): static
     {
-        $this->formNode[self::FETCH] = $fetch;
+        $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
+            self::FETCH => $fetch,
+        ]);
 
         return $this;
     }

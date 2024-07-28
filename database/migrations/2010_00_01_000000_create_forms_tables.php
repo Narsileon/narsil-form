@@ -106,6 +106,8 @@ return new class extends Migration
                 ->default(false);
             $table->string(FormNode::TYPE)
                 ->nullable();
+            $table->json(FormNode::PARAMETERS)
+                ->nullable();
 
             $table->timestamps();
         });

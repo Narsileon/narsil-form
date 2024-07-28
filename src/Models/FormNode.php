@@ -32,6 +32,7 @@ class FormNode extends Model
         $this->casts = [
             self::DESCRIPTION => TransAttribute::class,
             self::LABEL => TransAttribute::class,
+            self::PARAMETERS => 'array',
             self::PLACEHOLDER => TransAttribute::class,
         ];
 
@@ -92,6 +93,10 @@ class FormNode extends Model
      * @var string
      */
     final public const NODE_TYPE = 'node_type';
+    /**
+     * @var string
+     */
+    final public const PARAMETERS = 'parameters';
     /**
      * @var string
      */
