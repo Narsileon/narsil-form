@@ -27,9 +27,10 @@ export type SelectOption = {
 	[key: string]: any;
 };
 
-interface ComboboxProps {
+interface AsyncComboboxProps {
 	fetch: string;
 	labelKey?: string;
+	preview?: "icon" | "image";
 	sort?: boolean;
 	ucFirst?: boolean;
 	value: string | number;
@@ -39,14 +40,15 @@ interface ComboboxProps {
 
 const AsyncCombobox = React.forwardRef<
 	React.ElementRef<typeof PopoverPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> & ComboboxProps
->(({ fetch, labelKey = "label", sort = true, ucFirst = true, value, valueKey = "value", onChange }, ref) => {
+	React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> & AsyncComboboxProps
+>(({ fetch, labelKey = "label", preview, sort = true, ucFirst = true, value, valueKey = "value", onChange }, ref) => {
 	const { trans } = useTranslationsStore();
 
-	const [search, setSearch] = React.useState<string>("");
-	const [options, setOptions] = React.useState<SelectOption[]>([]);
 	const [open, setOpen] = React.useState(false);
+	const [options, setOptions] = React.useState<SelectOption[]>([]);
+
 	const [loading, setLoading] = React.useState(false);
+	const [search, setSearch] = React.useState<string>("");
 
 	const getValueOption = (value: string | number) => {
 		return options?.find((option) => option[valueKey] === value)?.[labelKey] ?? value;

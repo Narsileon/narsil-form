@@ -5,6 +5,7 @@ namespace Narsil\Forms\Builder\Inputs;
 #region USE
 
 use Narsil\Forms\Builder\Inputs\FormInput;
+use Narsil\Forms\Enums\PreviewEnum;
 use Narsil\Forms\Models\FormNode;
 
 #endregion
@@ -40,6 +41,10 @@ class FormSelect extends FormInput
      * @var string
      */
     private const FETCH = 'fetch';
+    /**
+     * @var string
+     */
+    private const PREVIEW = 'preview';
     /**
      * @var string
      */
@@ -96,13 +101,29 @@ class FormSelect extends FormInput
     }
 
     /**
+     * Sets the preview parameter.
+     *
+     * @param PreviewEnum $preview
+     *
+     * @return static Returns the current object instance.
+     */
+    final public function preview(PreviewEnum $preview): static
+    {
+        $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
+            self::PREVIEW => $preview->value,
+        ]);
+
+        return $this;
+    }
+
+    /**
      * Sets the value key parameter.
      *
      * @param string $valueKey
      *
      * @return static Returns the current object instance.
      */
-    final public function valueKey(string $valueKey): static
+    final public function valueKey(string $valueKey = 'value'): static
     {
         $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
             self::VALUE_KEY => $valueKey,
