@@ -18,6 +18,7 @@ import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
+	Svg,
 } from "@narsil-ui/Components";
 
 export type SelectOption = {
@@ -45,6 +46,7 @@ const AsyncCombobox = React.forwardRef<
 	const { trans } = useTranslationsStore();
 
 	const [open, setOpen] = React.useState(false);
+	const [option, setOption] = React.useState<SelectOption | null>(null);
 	const [options, setOptions] = React.useState<SelectOption[]>([]);
 
 	const [loading, setLoading] = React.useState(false);
@@ -103,11 +105,21 @@ const AsyncCombobox = React.forwardRef<
 			<PopoverTrigger asChild={true}>
 				<Button
 					aria-expanded={open}
-					className='w-full justify-between'
+					className='justify-start w-full gap-x-2'
 					role='combobox'
 					variant='outline'
 				>
-					{value ? (ucFirst ? upperFirst(getValueOption(value)) : getValueOption(value)) : trans("Select...")}
+					{option ? (
+						<>
+							{preview === "icon" ? <Svg src={`/storage/icons/${option?.[labelKey]}`} /> : null}
+
+							<span className='grow text-left'>
+								{ucFirst ? upperFirst(option?.[labelKey]) : getValueOption(option?.[labelKey])}
+							</span>
+						</>
+					) : (
+						trans("Select...")
+					)}
 					<ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
 				</Button>
 			</PopoverTrigger>
@@ -126,7 +138,7 @@ const AsyncCombobox = React.forwardRef<
 						className='min-h-10'
 						key={options.length}
 					>
-						{loading && <CommandLoading>{trans("Search...")}</CommandLoading>}
+						{loading ? <CommandLoading>{trans("Search...")}</CommandLoading> : null}
 						<CommandGroup>
 							{options.map((option, index) => {
 								const optionLabel = isString(option) ? option : option[labelKey];
@@ -134,13 +146,16 @@ const AsyncCombobox = React.forwardRef<
 
 								return (
 									<CommandItem
+										className='gap-x-2'
 										value={optionValue}
 										onSelect={() => {
 											onChange(optionValue);
+											setOption(option);
 											setOpen(false);
 										}}
 										key={optionValue}
 									>
+										{preview === "icon" ? <Svg src={`/storage/icons/${optionLabel}`} /> : null}
 										{ucFirst ? upperFirst(optionLabel) : optionLabel}
 										<Check className={cn("ml-auto h-4 w-4", value === optionValue ? "opacity-100" : "opacity-0")} />
 									</CommandItem>
