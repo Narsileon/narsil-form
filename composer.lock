@@ -1910,12 +1910,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Narsileon/narsil-ui.git",
-                "reference": "7291be738ce297b51f62984f43ced53a9202fe90"
+                "reference": "0dea9134eca9df6d6f146194cf95673334cedeec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/7291be738ce297b51f62984f43ced53a9202fe90",
-                "reference": "7291be738ce297b51f62984f43ced53a9202fe90",
+                "url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/0dea9134eca9df6d6f146194cf95673334cedeec",
+                "reference": "0dea9134eca9df6d6f146194cf95673334cedeec",
                 "shasum": ""
             },
             "require": {
@@ -1955,7 +1955,7 @@
                 "react",
                 "ui"
             ],
-            "time": "2024-08-04T11:10:43+00:00"
+            "time": "2024-08-04T13:08:34+00:00"
         },
         {
             "name": "nesbot/carbon",
