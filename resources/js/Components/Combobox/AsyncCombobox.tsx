@@ -105,7 +105,7 @@ const AsyncCombobox = React.forwardRef<
 			<PopoverTrigger asChild={true}>
 				<Button
 					aria-expanded={open}
-					className='justify-start w-full gap-x-2'
+					className='w-full justify-start gap-x-2'
 					role='combobox'
 					variant='outline'
 				>

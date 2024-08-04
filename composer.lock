@@ -1052,16 +1052,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.18.1",
+            "version": "v11.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b19ba518c56852567e99fbae9321bc436c2cc5a8"
+                "reference": "5e103d499e9ee5bcfc184412d034c4e516b87085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b19ba518c56852567e99fbae9321bc436c2cc5a8",
-                "reference": "b19ba518c56852567e99fbae9321bc436c2cc5a8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5e103d499e9ee5bcfc184412d034c4e516b87085",
+                "reference": "5e103d499e9ee5bcfc184412d034c4e516b87085",
                 "shasum": ""
             },
             "require": {
@@ -1254,7 +1254,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-07-26T10:39:29+00:00"
+            "time": "2024-07-30T15:22:41+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -1857,12 +1857,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Narsileon/narsil-localization.git",
-                "reference": "02a2e229fad0d0256bd0ac6de240c372de9b38b7"
+                "reference": "85d5af3aa09b2f415f20dbf764fe448d9084bd18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/02a2e229fad0d0256bd0ac6de240c372de9b38b7",
-                "reference": "02a2e229fad0d0256bd0ac6de240c372de9b38b7",
+                "url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/85d5af3aa09b2f415f20dbf764fe448d9084bd18",
+                "reference": "85d5af3aa09b2f415f20dbf764fe448d9084bd18",
                 "shasum": ""
             },
             "require": {
@@ -1902,7 +1902,7 @@
                 "react",
                 "translations"
             ],
-            "time": "2024-07-28T06:22:17+00:00"
+            "time": "2024-08-03T04:36:16+00:00"
         },
         {
             "name": "narsil/ui",
@@ -1910,16 +1910,17 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:Narsileon/narsil-ui.git",
-                "reference": "4bb0c49d56d0d9309f238bb77775fdbf0a991970"
+                "reference": "7291be738ce297b51f62984f43ced53a9202fe90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/4bb0c49d56d0d9309f238bb77775fdbf0a991970",
-                "reference": "4bb0c49d56d0d9309f238bb77775fdbf0a991970",
+                "url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/7291be738ce297b51f62984f43ced53a9202fe90",
+                "reference": "7291be738ce297b51f62984f43ced53a9202fe90",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "^11.3",
+                "narsil/localization": "dev-main",
                 "php": "^8.2"
             },
             "require-dev": {
@@ -1954,7 +1955,7 @@
                 "react",
                 "ui"
             ],
-            "time": "2024-07-28T16:23:52+00:00"
+            "time": "2024-08-04T11:10:43+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6142,16 +6143,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "11.2.8",
+            "version": "11.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a7a29e8d3113806f18f99d670f580a30e8ffff39"
+                "reference": "a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a7a29e8d3113806f18f99d670f580a30e8ffff39",
-                "reference": "a7a29e8d3113806f18f99d670f580a30e8ffff39",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3",
+                "reference": "a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3",
                 "shasum": ""
             },
             "require": {
@@ -6190,7 +6191,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "11.2-dev"
+                    "dev-main": "11.3-dev"
                 }
             },
             "autoload": {
@@ -6222,7 +6223,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.2.8"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.0"
             },
             "funding": [
                 {
@@ -6238,7 +6239,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-18T14:56:37+00:00"
+            "time": "2024-08-02T03:56:43+00:00"
         },
         {
             "name": "sebastian/cli-parser",

@@ -76,7 +76,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("bold")}
 				onClick={() => editor.chain().focus().toggleBold().run()}
 			>
-				<Bold className='w-4 h-4' />
+				<Bold className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -84,7 +84,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("italic")}
 				onClick={() => editor.chain().focus().toggleItalic().run()}
 			>
-				<Italic className='w-4 h-4' />
+				<Italic className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -92,7 +92,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("underline")}
 				onClick={() => editor.chain().focus().toggleUnderline().run()}
 			>
-				<Underline className='w-4 h-4' />
+				<Underline className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -100,11 +100,11 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("strike")}
 				onClick={() => editor.chain().focus().toggleStrike().run()}
 			>
-				<Strikethrough className='w-4 h-4' />
+				<Strikethrough className='h-4 w-4' />
 			</Toggle>
 
 			<Separator
-				className='h-9 mx-1'
+				className='mx-1 h-9'
 				orientation='vertical'
 			/>
 
@@ -115,7 +115,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 						variant='ghost'
 					>
 						<Baseline
-							className='w-4 h-4'
+							className='h-4 w-4'
 							color={editor.getAttributes("textStyle").color}
 						/>
 					</Button>
@@ -131,7 +131,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 								key={index}
 							>
 								<div
-									className='w-6 h-6 rounded'
+									className='h-6 w-6 rounded'
 									style={{ backgroundColor: color }}
 								/>
 							</Button>
@@ -147,7 +147,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 						variant='ghost'
 					>
 						<PencilLine
-							className='w-4 h-4'
+							className='h-4 w-4'
 							color={editor.getAttributes("textStyle").highlight}
 						/>
 					</Button>
@@ -163,7 +163,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 								key={index}
 							>
 								<div
-									className='w-6 h-6 rounded'
+									className='h-6 w-6 rounded'
 									style={{ backgroundColor: color }}
 								/>
 							</Button>
@@ -173,7 +173,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 			</Popover>
 
 			<Separator
-				className='h-9 mx-1'
+				className='mx-1 h-9'
 				orientation='vertical'
 			/>
 
@@ -183,7 +183,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 						size='icon'
 						variant='ghost'
 					>
-						<Heading className='w-4 h-4' />
+						<Heading className='h-4 w-4' />
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
@@ -193,7 +193,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 							pressed={editor.isActive("heading", { level: 1 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
 						>
-							<Heading1 className='w-4 h-4' />
+							<Heading1 className='h-4 w-4' />
 						</Toggle>
 					</DropdownMenuItem>
 					<DropdownMenuItem asChild={true}>
@@ -202,7 +202,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 							pressed={editor.isActive("heading", { level: 2 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
 						>
-							<Heading2 className='w-4 h-4' />
+							<Heading2 className='h-4 w-4' />
 						</Toggle>
 					</DropdownMenuItem>
 					<DropdownMenuItem asChild={true}>
@@ -211,7 +211,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 							pressed={editor.isActive("heading", { level: 3 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
 						>
-							<Heading3 className='w-4 h-4' />
+							<Heading3 className='h-4 w-4' />
 						</Toggle>
 					</DropdownMenuItem>
 					<DropdownMenuItem asChild={true}>
@@ -220,7 +220,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 							pressed={editor.isActive("heading", { level: 4 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
 						>
-							<Heading4 className='w-4 h-4' />
+							<Heading4 className='h-4 w-4' />
 						</Toggle>
 					</DropdownMenuItem>
 					<DropdownMenuItem asChild={true}>
@@ -229,7 +229,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 							pressed={editor.isActive("heading", { level: 5 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
 						>
-							<Heading5 className='w-4 h-4' />
+							<Heading5 className='h-4 w-4' />
 						</Toggle>
 					</DropdownMenuItem>
 					<DropdownMenuItem asChild={true}>
@@ -238,7 +238,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 							pressed={editor.isActive("heading", { level: 6 })}
 							onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
 						>
-							<Heading6 className='w-4 h-4' />
+							<Heading6 className='h-4 w-4' />
 						</Toggle>
 					</DropdownMenuItem>
 				</DropdownMenuContent>
@@ -252,7 +252,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					editor.chain().focus().toggleSuperscript().run();
 				}}
 			>
-				<Superscript className='w-4 h-4' />
+				<Superscript className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -263,11 +263,11 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 					editor.chain().focus().toggleSubscript().run();
 				}}
 			>
-				<Subscript className='w-4 h-4' />
+				<Subscript className='h-4 w-4' />
 			</Toggle>
 
 			<Separator
-				className='h-9 mx-1'
+				className='mx-1 h-9'
 				orientation='vertical'
 			/>
 
@@ -276,7 +276,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive({ textAlign: "left" })}
 				onClick={() => editor.chain().focus().setTextAlign("left").run()}
 			>
-				<AlignLeft className='w-4 h-4' />
+				<AlignLeft className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -284,7 +284,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive({ textAlign: "center" })}
 				onClick={() => editor.chain().focus().setTextAlign("center").run()}
 			>
-				<AlignCenter className='w-4 h-4' />
+				<AlignCenter className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -292,7 +292,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive({ textAlign: "right" })}
 				onClick={() => editor.chain().focus().setTextAlign("right").run()}
 			>
-				<AlignRight className='w-4 h-4' />
+				<AlignRight className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -300,11 +300,11 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive({ textAlign: "justify" })}
 				onClick={() => editor.chain().focus().setTextAlign("justify").run()}
 			>
-				<AlignJustify className='w-4 h-4' />
+				<AlignJustify className='h-4 w-4' />
 			</Toggle>
 
 			<Separator
-				className='h-9 mx-1'
+				className='mx-1 h-9'
 				orientation='vertical'
 			/>
 
@@ -313,7 +313,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("bulletList")}
 				onClick={() => editor.chain().focus().toggleBulletList().run()}
 			>
-				<List className='w-4 h-4' />
+				<List className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -321,11 +321,11 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("orderedList")}
 				onClick={() => editor.chain().focus().toggleOrderedList().run()}
 			>
-				<ListOrdered className='w-4 h-4' />
+				<ListOrdered className='h-4 w-4' />
 			</Toggle>
 
 			<Separator
-				className='h-9 mx-1'
+				className='mx-1 h-9'
 				orientation='vertical'
 			/>
 
@@ -334,7 +334,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("blockquote")}
 				onClick={() => editor.chain().focus().toggleBlockquote().run()}
 			>
-				<Quote className='w-4 h-4' />
+				<Quote className='h-4 w-4' />
 			</Toggle>
 
 			<Toggle
@@ -342,11 +342,11 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				pressed={editor.isActive("codeBlock")}
 				onClick={() => editor.chain().focus().toggleCodeBlock().run()}
 			>
-				<Code className='w-4 h-4' />
+				<Code className='h-4 w-4' />
 			</Toggle>
 
 			<Separator
-				className='h-9 mx-1'
+				className='mx-1 h-9'
 				orientation='vertical'
 			/>
 
@@ -357,7 +357,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				disabled={!editor.can().chain().focus().undo().run()}
 				onClick={() => editor.chain().focus().undo().run()}
 			>
-				<Undo className='w-4 h-4' />
+				<Undo className='h-4 w-4' />
 			</Button>
 
 			<Button
@@ -367,7 +367,7 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				disabled={!editor.can().chain().focus().redo().run()}
 				onClick={() => editor.chain().focus().redo().run()}
 			>
-				<Redo className='w-4 h-4' />
+				<Redo className='h-4 w-4' />
 			</Button>
 		</div>
 	);
