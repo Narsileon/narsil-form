@@ -43,7 +43,7 @@ const InputPlaceholders = React.forwardRef<HTMLDivElement, InputPlaceholdersProp
 								return (
 									<TableRow
 										className='cursor-pointer'
-										onClick={() => onInsert(placeholder.value)}
+										onClick={() => onInsert(`{ ${placeholder.value} }`)}
 										key={index}
 									>
 										<TableCell>{placeholder.label}</TableCell>
