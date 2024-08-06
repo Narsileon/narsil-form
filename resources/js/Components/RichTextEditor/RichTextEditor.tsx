@@ -1,5 +1,6 @@
 import { BubbleMenu, EditorContent, FloatingMenu, useEditor } from "@tiptap/react";
 import { cn } from "@narsil-ui/Components";
+import { InputPlaceholders } from "@narsil-forms/Components";
 import * as React from "react";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
@@ -13,64 +14,74 @@ import Underline from "@tiptap/extension-underline";
 
 interface RichTextEditorProps {
 	className?: string;
+	placeholders?: InputPlaceholderType[];
 	value: string;
 	onChange: (value: any) => void;
 }
 
-const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(({ className, value, onChange }, ref) => {
-	const extensions = [
-		Color,
-		Highlight.configure({
-			multicolor: true,
-		}),
-		StarterKit,
-		Subscript,
-		Superscript,
-		TextAlign.configure({
-			types: ["heading", "paragraph"],
-		}),
-		TextStyle,
-		Underline,
-	];
+const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
+	({ className, placeholders, value, onChange }, ref) => {
+		const extensions = [
+			Color,
+			Highlight.configure({
+				multicolor: true,
+			}),
+			StarterKit,
+			Subscript,
+			Superscript,
+			TextAlign.configure({
+				types: ["heading", "paragraph"],
+			}),
+			TextStyle,
+			Underline,
+		];
 
-	const editor = useEditor({
-		extensions: extensions,
-		content: value,
-		editorProps: {
-			attributes: {
-				class: cn(
-					"prose max-w-none text-foreground !whitespace-normal",
-					"rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground",
-					"focus-visible:outline-none focus-visible:border-primary",
-					"disabled:cursor-not-allowed disabled:opacity-50",
-					className
-				),
+		const editor = useEditor({
+			extensions: extensions,
+			content: value,
+			editorProps: {
+				attributes: {
+					class: cn(
+						"prose max-w-none text-foreground !whitespace-normal",
+						"rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground",
+						"focus-visible:outline-none focus-visible:border-primary",
+						"disabled:cursor-not-allowed disabled:opacity-50",
+						className
+					),
+				},
 			},
-		},
-		onUpdate: ({ editor }) => {
-			onChange(editor.getHTML());
-		},
-	});
+			onUpdate: ({ editor }) => {
+				onChange(editor.getHTML());
+			},
+		});
 
-	React.useEffect(() => {
-		editor?.commands.setContent(value);
-	}, [value]);
+		React.useEffect(() => {
+			editor?.commands.setContent(value);
+		}, [value]);
 
-	return (
-		<>
-			<RichTextEditorToolbar editor={editor} />
+		return (
+			<>
+				<RichTextEditorToolbar editor={editor} />
 
-			<EditorContent editor={editor} />
+				<EditorContent editor={editor} />
 
-			<FloatingMenu editor={editor}>
-				<></>
-			</FloatingMenu>
+				<FloatingMenu editor={editor}>
+					<></>
+				</FloatingMenu>
 
-			<BubbleMenu editor={editor}>
-				<></>
-			</BubbleMenu>
-		</>
-	);
-});
+				<BubbleMenu editor={editor}>
+					<></>
+				</BubbleMenu>
+
+				{placeholders ? (
+					<InputPlaceholders
+						placeholders={placeholders}
+						onInsert={(value) => editor?.commands.insertContentAt(editor.state.selection, value)}
+					/>
+				) : null}
+			</>
+		);
+	}
+);
 
 export default RichTextEditor;

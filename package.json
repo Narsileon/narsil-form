@@ -1,5 +1,6 @@
 {
 	"private": true,
+    "type": "module",
 	"devDependencies": {
 		"@types/lodash": "^4.17",
 		"@types/react": "^18.2",
