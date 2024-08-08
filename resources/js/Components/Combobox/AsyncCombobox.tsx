@@ -157,7 +157,12 @@ const AsyncCombobox = React.forwardRef<
 									>
 										{preview === "icon" ? <Svg src={`/storage/icons/${optionLabel}`} /> : null}
 										{ucFirst ? upperFirst(optionLabel) : optionLabel}
-										<Check className={cn("ml-auto h-4 w-4", value === optionValue ? "opacity-100" : "opacity-0")} />
+										<Check
+											className={cn(
+												"ml-auto h-4 w-4",
+												value === optionValue ? "opacity-100" : "opacity-0"
+											)}
+										/>
 									</CommandItem>
 								);
 							})}

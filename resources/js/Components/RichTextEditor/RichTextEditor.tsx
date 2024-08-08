@@ -12,13 +12,6 @@ import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 
-interface RichTextEditorProps {
-	className?: string;
-	placeholders?: InputPlaceholderType[];
-	value: string;
-	onChange: (value: any) => void;
-}
-
 const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 	({ className, placeholders, value, onChange }, ref) => {
 		const extensions = [

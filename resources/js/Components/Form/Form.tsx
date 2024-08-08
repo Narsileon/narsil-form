@@ -3,16 +3,6 @@ import { router } from "@inertiajs/react";
 import { FieldValues, useFormContext } from "react-hook-form";
 import * as React from "react";
 
-export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
-	className?: string;
-	method?: "patch" | "post";
-	route: string;
-	submitParameters?: {
-		onError?: (errors: Record<string, string>) => void;
-		onSuccess?: () => void;
-	};
-}
-
 const Form = React.forwardRef<HTMLFormElement, FormProps>(
 	({ className, children, method = "post", route, submitParameters = {}, ...props }, ref) => {
 		const form = useFormContext();

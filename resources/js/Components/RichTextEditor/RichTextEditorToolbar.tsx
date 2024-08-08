@@ -1,5 +1,3 @@
-import { Editor } from "@tiptap/react";
-
 import {
 	AlignCenter,
 	AlignJustify,
@@ -40,10 +38,6 @@ import {
 	Separator,
 	Toggle,
 } from "@narsil-ui/Components";
-
-interface RichTextEditorToolbarProps {
-	editor: Editor | null;
-}
 
 const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 	if (!editor) {

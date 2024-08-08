@@ -5,6 +5,6 @@ import FormField from "./FormField";
 import FormItem from "./FormItem";
 import FormLabel from "./FormLabel";
 import FormMessage from "./FormMessage";
-import FormWrapper from "./FormWrapper";
+import FormProvider from "./FormProvider";
 
-export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, FormWrapper };
+export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, FormProvider };
