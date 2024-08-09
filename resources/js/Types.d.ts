@@ -1,3 +1,5 @@
+type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch";
+
 type FormNodeOptionType = {
 	active: boolean;
 	created_at: string;
@@ -21,7 +23,7 @@ type FormNodeType = {
 	label: string;
 	max: number;
 	min: number;
-	node_type: string;
+	node_type: FormNodeNodeType;
 	parameters: any;
 	parent_id: number;
 	placeholder: string;
