@@ -36,6 +36,7 @@ type FormType = {
 	active: boolean;
 	created_at: string;
 	id: number;
+	nodes: FormNodeType[];
 	owner_id: number;
 	owner_type: string;
 	slug: string;
