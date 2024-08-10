@@ -51,17 +51,21 @@ return new class extends Migration
 
         Schema::create(FormNodeOption::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->boolean(Form::ACTIVE)
+            $table
+                ->id();
+            $table
+                ->boolean(Form::ACTIVE)
                 ->default(true);
-            $table->foreignId(FormNodeOption::NODE_ID)
+            $table
+                ->foreignId(FormNodeOption::NODE_ID)
                 ->constrained(FormNode::TABLE, FormNode::ID)
                 ->cascadeOnDelete();
-            $table->trans(FormNodeOption::LABEL);
-            $table->string(FormNodeOption::VALUE);
-
-            $table->timestamps();
+            $table
+                ->trans(FormNodeOption::LABEL);
+            $table
+                ->string(FormNodeOption::VALUE);
+            $table
+                ->timestamps();
         });
     }
 
@@ -77,39 +81,54 @@ return new class extends Migration
 
         Schema::create(FormNode::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->boolean(FormNode::ACTIVE)
+            $table
+                ->id();
+            $table
+                ->boolean(FormNode::ACTIVE)
                 ->default(true);
-            $table->foreignId(FormNode::FORM_ID)
+            $table
+                ->foreignId(FormNode::FORM_ID)
                 ->constrained(Form::TABLE, Form::ID)
                 ->cascadeOnDelete();
-            $table->foreignId(FormNode::PARENT_ID)
+            $table
+                ->foreignId(FormNode::PARENT_ID)
                 ->nullable()
                 ->constrained(FormNode::TABLE, FormNode::ID)
                 ->nullOnDelete();
-            $table->string(FormNode::NODE_TYPE);
-            $table->trans(FormNode::LABEL);
-            $table->trans(FormNode::DESCRIPTION);
-            $table->string(FormNode::IDENTIFIER)
+            $table
+                ->string(FormNode::NODE_TYPE);
+            $table
+                ->trans(FormNode::LABEL);
+            $table
+                ->trans(FormNode::DESCRIPTION);
+            $table
+                ->string(FormNode::IDENTIFIER)
                 ->nullable();
-            $table->string(FormNode::AUTO_COMPLETE)
+            $table
+                ->string(FormNode::AUTO_COMPLETE)
                 ->nullable();
-            $table->string(FormNode::DEFAULT_VALUE)
+            $table
+                ->string(FormNode::DEFAULT_VALUE)
                 ->nullable();
-            $table->integer(FormNode::MAX)
+            $table
+                ->integer(FormNode::MAX)
                 ->nullable();
-            $table->integer(FormNode::MIN)
+            $table
+                ->integer(FormNode::MIN)
                 ->nullable();
-            $table->trans(FormNode::PLACEHOLDER);
-            $table->boolean(FormNode::REQUIRED)
+            $table
+                ->trans(FormNode::PLACEHOLDER);
+            $table
+                ->boolean(FormNode::REQUIRED)
                 ->default(false);
-            $table->string(FormNode::TYPE)
+            $table
+                ->string(FormNode::TYPE)
                 ->nullable();
-            $table->json(FormNode::PARAMETERS)
+            $table
+                ->json(FormNode::PARAMETERS)
                 ->nullable();
-
-            $table->timestamps();
+            $table
+                ->timestamps();
         });
     }
 
@@ -125,15 +144,19 @@ return new class extends Migration
 
         Schema::create(Form::TABLE, function (Blueprint $table)
         {
-            $table->id();
-
-            $table->boolean(Form::ACTIVE)
+            $table
+                ->id();
+            $table
+                ->boolean(Form::ACTIVE)
                 ->default(true);
-            $table->trans(Form::TITLE);
-            $table->string(Form::SLUG);
-            $table->nullableMorphs(Form::RELATIONSHIP_OWNER);
-
-            $table->timestamps();
+            $table
+                ->trans(Form::TITLE);
+            $table
+                ->string(Form::SLUG);
+            $table
+                ->nullableMorphs(Form::RELATIONSHIP_OWNER);
+            $table
+                ->timestamps();
         });
     }
 
