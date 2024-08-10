@@ -52,10 +52,7 @@ return new class extends Migration
         Schema::create(FormNodeOption::TABLE, function (Blueprint $table)
         {
             $table
-                ->id();
-            $table
-                ->boolean(Form::ACTIVE)
-                ->default(true);
+                ->id(FormNodeOption::ID);
             $table
                 ->foreignId(FormNodeOption::NODE_ID)
                 ->constrained(FormNode::TABLE, FormNode::ID)
@@ -82,10 +79,7 @@ return new class extends Migration
         Schema::create(FormNode::TABLE, function (Blueprint $table)
         {
             $table
-                ->id();
-            $table
-                ->boolean(FormNode::ACTIVE)
-                ->default(true);
+                ->id(FormNode::ID);
             $table
                 ->foreignId(FormNode::FORM_ID)
                 ->constrained(Form::TABLE, Form::ID)
@@ -145,7 +139,7 @@ return new class extends Migration
         Schema::create(Form::TABLE, function (Blueprint $table)
         {
             $table
-                ->id();
+                ->id(Form::ID);
             $table
                 ->boolean(Form::ACTIVE)
                 ->default(true);

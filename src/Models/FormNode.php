@@ -52,10 +52,6 @@ class FormNode extends Model
     /**
      * @var string
      */
-    final public const ACTIVE = 'active';
-    /**
-     * @var string
-     */
     final public const AUTO_COMPLETE = 'auto_complete';
     /**
      * @var string
