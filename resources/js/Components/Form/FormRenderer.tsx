@@ -10,7 +10,6 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-	Input,
 	RichTextEditor,
 } from "@narsil-forms/Components";
 
@@ -21,6 +20,7 @@ import {
 	CardHeader,
 	CardTitle,
 	Combobox,
+	Input,
 	Section,
 	SectionContent,
 	SectionFooter,

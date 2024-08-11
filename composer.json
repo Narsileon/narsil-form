@@ -20,6 +20,11 @@
 		},
 		{
 			"type": "vcs",
+			"url": "git@github.com:Narsileon/narsil-policies.git",
+			"no-api": true
+		},
+		{
+			"type": "vcs",
 			"url": "git@github.com:Narsileon/narsil-ui.git",
 			"no-api": true
 		}
@@ -28,6 +33,7 @@
 		"php": "^8.2",
 		"laravel/framework": "^11.3",
 		"narsil/localization": "dev-main",
+		"narsil/policies": "dev-main",
 		"narsil/ui": "dev-main"
 	},
 	"require-dev": {
