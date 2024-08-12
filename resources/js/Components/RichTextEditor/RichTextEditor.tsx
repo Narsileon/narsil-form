@@ -13,7 +13,7 @@ import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 
 const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
-	({ className, placeholders, value, onChange, ...props }, ref) => {
+	({ className, placeholders, toolbar = true, value, onChange, ...props }, ref) => {
 		const extensions = [
 			Color,
 			Highlight.configure({
@@ -55,7 +55,7 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 
 		return (
 			<div className='flex flex-col gap-y-4'>
-				{editor?.isEditable ? <RichTextEditorToolbar editor={editor} /> : null}
+				{toolbar && editor?.isEditable ? <RichTextEditorToolbar editor={editor} /> : null}
 
 				<EditorContent editor={editor} />
 
