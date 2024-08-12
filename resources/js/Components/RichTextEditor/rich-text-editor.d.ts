@@ -1,4 +1,4 @@
-type RichTextEditorProps = import("@tiptap/react").Editor & {
+type RichTextEditorProps = Partial<import("@tiptap/react").EditorOptions> & {
 	className?: string;
 	placeholders?: InputPlaceholderType[];
 	value: string;
