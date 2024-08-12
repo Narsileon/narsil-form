@@ -13,7 +13,7 @@ import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 
 const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
-	({ className, placeholders, value, onChange }, ref) => {
+	({ className, placeholders, value, onChange, ...props }, ref) => {
 		const extensions = [
 			Color,
 			Highlight.configure({
@@ -46,6 +46,7 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 			onUpdate: ({ editor }) => {
 				onChange(editor.getHTML());
 			},
+			...props,
 		});
 
 		React.useEffect(() => {
