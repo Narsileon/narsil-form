@@ -44,7 +44,7 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 				},
 			},
 			onUpdate: ({ editor }) => {
-				onChange(editor.getHTML());
+				onChange?.(editor.getHTML());
 			},
 			...props,
 		});
@@ -54,8 +54,8 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 		}, [value]);
 
 		return (
-			<>
-				<RichTextEditorToolbar editor={editor} />
+			<div className='flex flex-col gap-y-4'>
+				{editor?.isEditable ? <RichTextEditorToolbar editor={editor} /> : null}
 
 				<EditorContent editor={editor} />
 
@@ -73,7 +73,7 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 						onInsert={(value) => editor?.commands.insertContentAt(editor.state.selection, value)}
 					/>
 				) : null}
-			</>
+			</div>
 		);
 	}
 );
