@@ -50,7 +50,9 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 		});
 
 		React.useEffect(() => {
-			editor?.commands.setContent(value);
+			if (editor && editor?.getHTML() !== value) {
+				editor?.commands.setContent(value);
+			}
 		}, [value]);
 
 		return (
