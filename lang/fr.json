@@ -2,5 +2,6 @@
 	"Example": "Example",
 	"Label": "Désignation",
 	"Placeholder": "Marque substitutive",
-	"Placeholders": "Marques substitutives"
+	"Placeholders": "Marques substitutives",
+	"Required": "Obligatoire"
 }

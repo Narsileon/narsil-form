@@ -2,5 +2,6 @@
 	"Example": "Example",
 	"Label": "Label",
 	"Placeholder": "Placeholder",
-	"Placeholders": "Placeholders"
+	"Placeholders": "Placeholders",
+	"Required": "Required"
 }

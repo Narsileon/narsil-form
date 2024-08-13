@@ -2,5 +2,6 @@
 	"Example": "Beispiel",
 	"Label": "Bezeichnung",
 	"Placeholder": "Platzhalter",
-	"Placeholders": "Platzhalter"
+	"Placeholders": "Platzhalter",
+	"Required": "Pflicht"
 }

@@ -2,6 +2,22 @@ import { useForm as useReactForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+export function getRequiredFields(schema: z.ZodObject<any>) {
+	const requiredFields = [];
+
+	const schemaShape = schema._def.shape();
+
+	for (const key in schemaShape) {
+		const field = schemaShape[key];
+
+		if (field.isOptional() === false && field.isNullable() === false) {
+			requiredFields.push(key);
+		}
+	}
+
+	return requiredFields;
+}
+
 function generateFormSchema(nodes: FormNodeType[]) {
 	const schemaObject: Record<string, z.Schema> = {};
 
