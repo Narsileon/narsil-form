@@ -1,9 +1,9 @@
-import { BubbleMenu, EditorContent, FloatingMenu, useEditor } from "@tiptap/react";
+import { BubbleMenu, EditorContent, EditorOptions, FloatingMenu, useEditor } from "@tiptap/react";
 import { cn } from "@narsil-ui/Components";
-import { InputPlaceholders } from "@narsil-forms/Components";
 import * as React from "react";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
+import InputPlaceholders from "@narsil-forms/Components/Input/InputPlaceholders";
 import RichTextEditorToolbar from "./RichTextEditorToolbar";
 import StarterKit from "@tiptap/starter-kit";
 import Subscript from "@tiptap/extension-subscript";
@@ -11,6 +11,14 @@ import Superscript from "@tiptap/extension-superscript";
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
+
+type RichTextEditorProps = Partial<EditorOptions> & {
+	className?: string;
+	placeholders?: InputPlaceholderType[];
+	toolbar?: boolean;
+	value: string;
+	onChange?: (value: any) => void;
+};
 
 const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 	({ className, placeholders, toolbar = true, value, onChange, ...props }, ref) => {

@@ -18,7 +18,12 @@ export function getRequiredFields(schema: z.ZodObject<any>) {
 	return requiredFields;
 }
 
-function generateFormSchema(nodes: FormNodeType[]) {
+export interface useFormProps {
+	data?: Record<string, any>;
+	form: FormModel;
+}
+
+function generateFormSchema(nodes: FormNodeModel[]) {
 	const schemaObject: Record<string, z.Schema> = {};
 
 	nodes.map((node) => {

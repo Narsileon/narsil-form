@@ -1,7 +1,15 @@
 import { cn } from "@narsil-ui/Components";
 import * as React from "react";
 
+type FormItemContextValue = {
+	id: string;
+};
+
 export const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
+
+export interface FormItemProps extends React.HTMLAttributes<HTMLDivElement> {
+	orientation?: "horizontal" | "vertical";
+}
 
 const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>(
 	({ className, orientation = "vertical", ...props }, ref) => {

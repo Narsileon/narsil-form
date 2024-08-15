@@ -1,6 +1,8 @@
 import { cn } from "@narsil-ui/Components";
 import * as React from "react";
 
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, ...props }, ref) => (
 	<textarea
 		ref={ref}

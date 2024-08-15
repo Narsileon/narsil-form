@@ -2,6 +2,8 @@ import { cn } from "@narsil-ui/Components";
 import * as React from "react";
 import useFormField from "./useFormField";
 
+export interface FormMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+
 const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
 	({ className, children, ...props }, ref) => {
 		const { error, formMessageId } = useFormField();

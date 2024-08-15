@@ -1,9 +1,15 @@
 import { Asterisk } from "lucide-react";
-import { cn, Label, TooltipWrapper } from "@narsil-ui/Components";
+import { cn } from "@narsil-ui/Components";
 import { useTranslationsStore } from "@narsil-ui/Stores/translationStore";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import * as React from "react";
+import Label from "@narsil-ui/Components/Label/Label";
 import useFormField from "./useFormField";
+import TooltipWrapper from "@narsil-ui/Components/Tooltip/TooltipWrapper";
+
+export interface FormLabelProps extends React.ComponentProps<typeof LabelPrimitive.Root> {
+	required?: boolean;
+}
 
 const FormLabel = React.forwardRef<React.ElementRef<typeof LabelPrimitive.Root>, FormLabelProps>(
 	({ children, className, required = false, ...props }, ref) => {

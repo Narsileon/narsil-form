@@ -1,3 +1,15 @@
+import { Editor } from "@tiptap/react";
+import Button from "@narsil-ui/Components/Button/Button";
+import DropdownMenu from "@narsil-ui/Components/DropdownMenu/DropdownMenu";
+import DropdownMenuContent from "@narsil-ui/Components/DropdownMenu/DropdownMenuContent";
+import DropdownMenuItem from "@narsil-ui/Components/DropdownMenu/DropdownMenuItem";
+import DropdownMenuTrigger from "@narsil-ui/Components/DropdownMenu/DropdownMenuTrigger";
+import Popover from "@narsil-ui/Components/Popover/Popover";
+import PopoverContent from "@narsil-ui/Components/Popover/PopoverContent";
+import PopoverTrigger from "@narsil-ui/Components/Popover/PopoverTrigger";
+import Separator from "@narsil-ui/Components/Separator/Separator";
+import Toggle from "@narsil-ui/Components/Toggle/Toggle";
+
 import {
 	AlignCenter,
 	AlignJustify,
@@ -26,18 +38,9 @@ import {
 	Undo,
 } from "lucide-react";
 
-import {
-	Button,
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-	Separator,
-	Toggle,
-} from "@narsil-ui/Components";
+export interface RichTextEditorToolbarProps {
+	editor: Editor | null;
+}
 
 const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 	if (!editor) {
