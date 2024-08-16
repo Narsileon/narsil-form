@@ -22,6 +22,7 @@ import SectionFooter from "@narsil-ui/Components/Section/SectionFooter";
 import SectionHeader from "@narsil-ui/Components/Section/SectionHeader";
 import SectionTitle from "@narsil-ui/Components/Section/SectionTitle";
 import Switch from "@narsil-ui/Components/Switch/Switch";
+import SectionFullscreenToggle from "@narsil-ui/Components/Section/SectionFullscreenToggle";
 
 export interface FormRendererProps {
 	footer?: React.ReactNode;
@@ -85,6 +86,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 										{node.label ? (
 											<SectionHeader>
 												<SectionTitle>{node.label}</SectionTitle>
+                                                <SectionFullscreenToggle />
 											</SectionHeader>
 										) : null}
 										<SectionContent>
