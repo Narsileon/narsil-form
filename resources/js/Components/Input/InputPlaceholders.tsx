@@ -25,6 +25,8 @@ const InputPlaceholders = React.forwardRef<HTMLDivElement, InputPlaceholdersProp
 			placeholders = sortBy(placeholders, (placeholder) => placeholder.label);
 		}
 
+		const hasExample = placeholders.find((x) => x.example != undefined);
+
 		return (
 			<Collapsible
 				ref={ref}
@@ -38,7 +40,7 @@ const InputPlaceholders = React.forwardRef<HTMLDivElement, InputPlaceholdersProp
 							<TableRow>
 								<TableHead>{trans("Label")}</TableHead>
 								<TableHead>{trans("Placeholder")}</TableHead>
-								<TableHead>{trans("Example")}</TableHead>
+								{hasExample ? <TableHead>{trans("Example")}</TableHead> : null}
 							</TableRow>
 						</TableHeader>
 						<TableBody>
@@ -51,7 +53,7 @@ const InputPlaceholders = React.forwardRef<HTMLDivElement, InputPlaceholdersProp
 									>
 										<TableCell>{placeholder.label}</TableCell>
 										<TableCell>{`{ ${placeholder.value} }`}</TableCell>
-										<TableCell>{placeholder.example}</TableCell>
+										{hasExample ? <TableCell>{placeholder.example}</TableCell> : null}
 									</TableRow>
 								);
 							})}
