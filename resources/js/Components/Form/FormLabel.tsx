@@ -1,6 +1,6 @@
 import { Asterisk } from "lucide-react";
 import { cn } from "@narsil-ui/Components";
-import { useTranslationsStore } from "@narsil-ui/Stores/translationStore";
+import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import * as React from "react";
 import Label from "@narsil-ui/Components/Label/Label";

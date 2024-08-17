@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { useTranslationsStore } from "@narsil-ui/Stores/translationStore";
+import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
 import AsyncCombobox from "@narsil-ui/Components/Combobox/AsyncCombobox";
 import Card from "@narsil-ui/Components/Card/Card";
@@ -86,7 +86,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 										{node.label ? (
 											<SectionHeader>
 												<SectionTitle>{node.label}</SectionTitle>
-                                                <SectionFullscreenToggle />
+												<SectionFullscreenToggle />
 											</SectionHeader>
 										) : null}
 										<SectionContent>

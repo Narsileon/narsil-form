@@ -1,5 +1,5 @@
 import { sortBy } from "lodash";
-import { useTranslationsStore } from "@narsil-ui/Stores/translationStore";
+import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
 import Collapsible, { CollapsibleProps } from "@narsil-ui/Components/Collapsible/Collapsible";
 import CollapsibleContent from "@narsil-ui/Components/Collapsible/CollapsibleContent";
