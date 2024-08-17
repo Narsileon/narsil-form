@@ -30,6 +30,7 @@ class Form extends Model
         $this->table = self::TABLE;
 
         $this->casts = [
+            self::ACTIVE => 'boolean',
             self::TITLE => TransAttribute::class,
         ];
 

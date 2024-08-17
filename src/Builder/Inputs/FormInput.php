@@ -28,7 +28,7 @@ abstract class FormInput extends AbstractFormNode
     {
         parent::__construct($type, $identifier);
 
-        $this->formNode[FormNode::LABEL] = str_replace("_id", "", "validation.attributes.$identifier");
+        $this->formNode[FormNode::LABEL] = str_replace('_id', '', "validation.attributes.$identifier");
     }
 
     #endregion
