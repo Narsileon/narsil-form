@@ -7,7 +7,7 @@ namespace Narsil\Forms\Constants;
  *
  * @author Jonathan Rigaux
  */
-abstract class ConfigKeys
+abstract class FormsConfig
 {
     #region CONSTANTS
 

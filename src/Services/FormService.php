@@ -5,7 +5,7 @@ namespace Narsil\Forms\Services;
 #region USE
 
 use Illuminate\Support\Facades\Config;
-use Narsil\Forms\Constants\ConfigKeys;
+use Narsil\Forms\Constants\FormsConfig;
 
 #endregion
 
@@ -31,7 +31,7 @@ final class FormService
 
         if (!class_exists($form))
         {
-            $paths = Config::get(ConfigKeys::PATHS, []);
+            $paths = Config::get(FormsConfig::PATHS, []);
 
             foreach ($paths as $path)
             {
