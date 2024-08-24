@@ -70,6 +70,7 @@ final class NarsilFormsServiceProvider extends ServiceProvider
     private function bootTranslations(): void
     {
         $this->loadJsonTranslationsFrom(__DIR__ . '/../lang', 'forms');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'forms');
     }
 
     #endregion
