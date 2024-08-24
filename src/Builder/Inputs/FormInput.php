@@ -112,7 +112,7 @@ abstract class FormInput extends AbstractFormNode
      */
     private function removeUnderscoreFromIdentifier(string $identifier): string
     {
-        return str_replace('_', '', $identifier);
+        return str_replace('_', ' ', $identifier);
     }
 
     #endregion
