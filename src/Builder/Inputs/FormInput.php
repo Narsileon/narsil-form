@@ -28,7 +28,7 @@ abstract class FormInput extends AbstractFormNode
     {
         parent::__construct($type, $identifier);
 
-        $this->formNode[FormNode::LABEL] = str_replace('_id', '', "validation.attributes.$identifier");
+        $this->formNode[FormNode::LABEL] = $this->getLabelFromIdentifier($identifier);
     }
 
     #endregion
@@ -71,6 +71,48 @@ abstract class FormInput extends AbstractFormNode
         $this->formNode[FormNode::REQUIRED] = true;
 
         return $this;
+    }
+
+    #endregion
+
+    #region PRIVATE METHODS
+
+    /**
+     * @param string $identifier
+     *
+     * @return string
+     */
+    private function getLabelFromIdentifier(string $identifier): string
+    {
+        $identifier = $this->removeRelationshipFromIdentifier($identifier);
+        $identifier = $this->removeUnderscoreFromIdentifier($identifier);
+
+        return ucfirst($identifier);
+    }
+
+    /**
+     * @param string $identifier
+     *
+     * @return string
+     */
+    private function removeRelationshipFromIdentifier(string $identifier): string
+    {
+        if (substr($identifier, -3) === '_id')
+        {
+            $identifier = substr($identifier, 0, -3);
+        }
+
+        return $identifier;
+    }
+
+    /**
+     * @param string $identifier
+     *
+     * @return string
+     */
+    private function removeUnderscoreFromIdentifier(string $identifier): string
+    {
+        return str_replace('_', '', $identifier);
     }
 
     #endregion
