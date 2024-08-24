@@ -1,17 +1,18 @@
-type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch";
+export type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch";
 
-type FormNodeOptionModel = {
+export type FormModel = {
 	active: boolean;
 	created_at: string;
 	id: number;
-	label: string;
-	node_id: number;
-	node: FormNodeModel;
+	nodes: FormNodeModel[];
+	owner_id: number;
+	owner_type: string;
+	slug: string;
+	title: string;
 	updated_at: string;
-	value: string;
 };
 
-type FormNodeModel = {
+export type FormNodeModel = {
 	active: boolean;
 	auto_complete: string;
 	created_at: string;
@@ -32,20 +33,13 @@ type FormNodeModel = {
 	updated_at: string;
 };
 
-type FormModel = {
+export type FormNodeOptionModel = {
 	active: boolean;
 	created_at: string;
 	id: number;
-	nodes: FormNodeModel[];
-	owner_id: number;
-	owner_type: string;
-	slug: string;
-	title: string;
-	updated_at: string;
-};
-
-type InputPlaceholderType = {
-	example?: string;
 	label: string;
+	node_id: number;
+	node: FormNodeModel;
+	updated_at: string;
 	value: string;
 };

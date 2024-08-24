@@ -11,6 +11,12 @@ import TableHead from "@narsil-ui/Components/Table/TableHead";
 import TableHeader from "@narsil-ui/Components/Table/TableHeader";
 import TableRow from "@narsil-ui/Components/Table/TableRow";
 
+export type InputPlaceholderType = {
+	example?: string;
+	label: string;
+	value: string;
+};
+
 export interface InputPlaceholdersProps extends CollapsibleProps {
 	placeholders: InputPlaceholderType[];
 	sort?: boolean;

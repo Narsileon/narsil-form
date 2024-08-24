@@ -3,7 +3,7 @@ import { cn } from "@narsil-ui/Components";
 import * as React from "react";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
-import InputPlaceholders from "@narsil-forms/Components/Input/InputPlaceholders";
+import InputPlaceholders, { InputPlaceholderType } from "@narsil-forms/Components/Input/InputPlaceholders";
 import RichTextEditorToolbar from "./RichTextEditorToolbar";
 import StarterKit from "@tiptap/starter-kit";
 import Subscript from "@tiptap/extension-subscript";

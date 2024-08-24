@@ -1,3 +1,4 @@
+import { FormNodeModel } from "@narsil-forms/Types";
 import { useFormContext } from "react-hook-form";
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
@@ -22,7 +23,8 @@ import SectionFooter from "@narsil-ui/Components/Section/SectionFooter";
 import SectionHeader from "@narsil-ui/Components/Section/SectionHeader";
 import SectionTitle from "@narsil-ui/Components/Section/SectionTitle";
 import Switch from "@narsil-ui/Components/Switch/Switch";
-import SectionFullscreenToggle from "@narsil-ui/Components/Section/SectionFullscreenToggle";
+import Fullscreen from "@narsil-ui/Components/Fullscreen/Fullscreen";
+import FullscreenToggle from "@narsil-ui/Components/Fullscreen/FullscreenToggle";
 
 export interface FormRendererProps {
 	footer?: React.ReactNode;
@@ -82,23 +84,25 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 								);
 							case "section":
 								return (
-									<Section>
-										{node.label ? (
-											<SectionHeader>
-												<SectionTitle>{node.label}</SectionTitle>
-												<SectionFullscreenToggle />
-											</SectionHeader>
-										) : null}
-										<SectionContent>
-											<FormRenderer
-												footer={footer}
-												nodes={nodes}
-												options={options}
-												parentNode={node}
-											/>
-										</SectionContent>
-										<SectionFooter>{footer}</SectionFooter>
-									</Section>
+									<Fullscreen>
+										<Section>
+											{node.label ? (
+												<SectionHeader>
+													<SectionTitle>{node.label}</SectionTitle>
+													<FullscreenToggle />
+												</SectionHeader>
+											) : null}
+											<SectionContent>
+												<FormRenderer
+													footer={footer}
+													nodes={nodes}
+													options={options}
+													parentNode={node}
+												/>
+											</SectionContent>
+											<SectionFooter>{footer}</SectionFooter>
+										</Section>
+									</Fullscreen>
 								);
 							case "select":
 								const optionsProps = options[node.identifier] ?? {};
