@@ -2167,12 +2167,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Narsileon/narsil-localization.git",
-				"reference": "97e450593ccadee25f1f37de2d581b990c4dc30d"
+				"reference": "7e7703d661264cc8198acc1862c7aef4b16ee384"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/97e450593ccadee25f1f37de2d581b990c4dc30d",
-				"reference": "97e450593ccadee25f1f37de2d581b990c4dc30d",
+				"url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/7e7703d661264cc8198acc1862c7aef4b16ee384",
+				"reference": "7e7703d661264cc8198acc1862c7aef4b16ee384",
 				"shasum": ""
 			},
 			"require": {
@@ -2181,6 +2181,7 @@
 				"narsil/menus": "dev-main",
 				"narsil/policies": "dev-main",
 				"narsil/settings": "dev-main",
+				"narsil/ui": "dev-main",
 				"php": "^8.2"
 			},
 			"require-dev": {
@@ -2221,7 +2222,7 @@
 				"source": "https://github.com/Narsileon/narsil-localization/tree/main",
 				"issues": "https://github.com/Narsileon/narsil-localization/issues"
 			},
-			"time": "2024-08-24T05:03:22+00:00"
+			"time": "2024-08-25T16:01:06+00:00"
 		},
 		{
 			"name": "narsil/menus",
@@ -2535,12 +2536,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Narsileon/narsil-ui.git",
-				"reference": "67c2cb7265b412288de0407940bdb5ac22332b51"
+				"reference": "4d4903eff6ef446f0935fc3cdb65268a4b5c480d"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/67c2cb7265b412288de0407940bdb5ac22332b51",
-				"reference": "67c2cb7265b412288de0407940bdb5ac22332b51",
+				"url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/4d4903eff6ef446f0935fc3cdb65268a4b5c480d",
+				"reference": "4d4903eff6ef446f0935fc3cdb65268a4b5c480d",
 				"shasum": ""
 			},
 			"require": {
@@ -2588,7 +2589,7 @@
 				"source": "https://github.com/Narsileon/narsil-ui/tree/main",
 				"issues": "https://github.com/Narsileon/narsil-ui/issues"
 			},
-			"time": "2024-08-24T05:35:17+00:00"
+			"time": "2024-08-25T16:43:54+00:00"
 		},
 		{
 			"name": "nesbot/carbon",
