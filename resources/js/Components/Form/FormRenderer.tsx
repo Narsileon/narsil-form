@@ -163,6 +163,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 											<Input
 												id={node.identifier}
 												{...field}
+												autoComplete={node.auto_complete}
 												type={node.type ?? "text"}
 											/>
 										</FormControl>
