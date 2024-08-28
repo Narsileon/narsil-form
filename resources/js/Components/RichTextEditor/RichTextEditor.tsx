@@ -14,6 +14,7 @@ import Underline from "@tiptap/extension-underline";
 
 type RichTextEditorProps = Partial<EditorOptions> & {
 	className?: string;
+	id?: string;
 	placeholders?: InputPlaceholderType[];
 	toolbar?: boolean;
 	value: string;
@@ -21,7 +22,7 @@ type RichTextEditorProps = Partial<EditorOptions> & {
 };
 
 const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
-	({ className, placeholders, toolbar = true, value, onChange, ...props }, ref) => {
+	({ className, id, placeholders, toolbar = true, value, onChange, ...props }, ref) => {
 		const extensions = [
 			Color,
 			Highlight.configure({
@@ -64,10 +65,16 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 		}, [value]);
 
 		return (
-			<div className='flex flex-col gap-y-4'>
+			<div
+				ref={ref}
+				className='flex flex-col gap-y-4'
+			>
 				{toolbar && editor?.isEditable ? <RichTextEditorToolbar editor={editor} /> : null}
 
-				<EditorContent editor={editor} />
+				<EditorContent
+					id={id}
+					editor={editor}
+				/>
 
 				<FloatingMenu editor={editor}>
 					<></>

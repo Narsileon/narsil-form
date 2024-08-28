@@ -77,7 +77,10 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 											<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
 										</div>
 										<FormControl>
-											<RichTextEditor {...field} />
+											<RichTextEditor
+												id={node.identifier}
+												{...field}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -115,6 +118,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 										<FormControl>
 											{node.parameters?.fetch ? (
 												<AsyncCombobox
+													id={node.identifier}
 													{...field}
 													fetch={node.parameters.fetch}
 													labelKey={node.parameters.label_key}
@@ -123,6 +127,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 												/>
 											) : (
 												<Combobox
+													id={node.identifier}
 													{...field}
 													options={optionsProps.options}
 													labelKey={node.parameters?.label_key}
@@ -139,7 +144,10 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 										<FormLabel htmlFor={node.identifier}>{node.label + trans(":")}</FormLabel>
 
 										<FormControl>
-											<Switch {...field} />
+											<Switch
+												id={node.identifier}
+												{...field}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -153,6 +161,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 										</div>
 										<FormControl>
 											<Input
+												id={node.identifier}
 												{...field}
 												type={node.type ?? "text"}
 											/>
