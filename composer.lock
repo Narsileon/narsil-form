@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "6dce3ce0c2ea489cb0a711e61a6e95e8",
+	"content-hash": "8c1822453c1e149aba2bc62b483958d7",
 	"packages": [
 		{
 			"name": "bacon/bacon-qr-code",
@@ -2469,6 +2469,68 @@
 				"issues": "https://github.com/Narsileon/narsil-storage/issues"
 			},
 			"time": "2024-08-28T16:21:14+00:00"
+		},
+		{
+			"name": "narsil/tables",
+			"version": "dev-main",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/Narsileon/narsil-tables.git",
+				"reference": "b8f1d5ae1b0768180346148de5a731ff5791472b"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/Narsileon/narsil-tables/zipball/b8f1d5ae1b0768180346148de5a731ff5791472b",
+				"reference": "b8f1d5ae1b0768180346148de5a731ff5791472b",
+				"shasum": ""
+			},
+			"require": {
+				"laravel/framework": "^11.3",
+				"narsil/forms": "dev-main",
+				"narsil/localization": "dev-main",
+				"narsil/ui": "dev-main",
+				"php": "^8.2"
+			},
+			"require-dev": {
+				"phpunit/phpunit": "^11.0"
+			},
+			"default-branch": true,
+			"type": "library",
+			"extra": {
+				"laravel": {
+					"providers": [
+						"Narsil\\Tables\\NarsilTablesServiceProvider"
+					]
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Narsil\\Tables\\": "src/"
+				}
+			},
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Jonathan Rigaux"
+				}
+			],
+			"description": "Narsil tables",
+			"keywords": [
+				"inertia",
+				"laravel",
+				"narsil",
+				"php",
+				"react",
+				"table",
+				"tables"
+			],
+			"support": {
+				"source": "https://github.com/Narsileon/narsil-tables/tree/main",
+				"issues": "https://github.com/Narsileon/narsil-tables/issues"
+			},
+			"time": "2024-08-31T13:35:25+00:00"
 		},
 		{
 			"name": "narsil/tree",
@@ -8043,6 +8105,7 @@
 	"stability-flags": {
 		"narsil/localization": 20,
 		"narsil/policies": 20,
+		"narsil/tables": 20,
 		"narsil/ui": 20
 	},
 	"prefer-stable": true,
