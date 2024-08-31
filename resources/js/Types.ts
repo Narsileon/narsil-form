@@ -7,6 +7,7 @@ export type FormModel = {
 	created_at: string;
 	id: number;
 	nodes: FormNodeModel[];
+	options: any;
 	owner_id: number;
 	owner_type: string;
 	slug: string;
