@@ -9,7 +9,6 @@ return [
     | List of forms keyed by model.
     |
     */
-    'forms' => [
-        //
-    ],
+
+    'forms' => [],
 ];

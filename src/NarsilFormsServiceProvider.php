@@ -71,7 +71,7 @@ final class NarsilFormsServiceProvider extends ServiceProvider
     private function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__ . './Config' => config_path(),
+            __DIR__ . '/Config' => config_path(),
         ], 'config');
     }
 
