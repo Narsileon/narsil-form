@@ -166,7 +166,7 @@ return [
         'language'      => 'Sprache',
         'locale'        => 'Locale',
         'name'          => 'Name',
-        'Title'         => 'Titel',
+        'title'         => 'Titel',
         'type'          => 'Typ',
         'updated_at'    => 'Aktualisiert am',
         'updated_by'    => 'Aktualisiert von',
