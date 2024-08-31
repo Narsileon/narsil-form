@@ -79,19 +79,25 @@ abstract class AbstractForm extends JsonResource
         $form = new FormResource($this->getForm(), $this->getOptions());;
         $meta = $this->getMeta();
         $slug = $this->getSlug();
-        $title = $this->getTitle();
 
         return compact(
             'form',
             'meta',
             'slug',
-            'title',
         );
     }
 
     #endregion
 
     #region PROTECTED METHODS
+
+    /**
+     * @return array
+     */
+    protected function getMeta(): array
+    {
+        return [];
+    }
 
     /**
      * @return array
@@ -202,14 +208,6 @@ abstract class AbstractForm extends JsonResource
     private function getSlug(): string
     {
         return Str::slug($this->resource->getTable());
-    }
-
-    /**
-     * @return string
-     */
-    private function getTitle(): string
-    {
-        return ucfirst(str_replace('_', ' ', $this->resource->getTable()));
     }
 
     #endregion
