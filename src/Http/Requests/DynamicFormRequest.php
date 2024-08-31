@@ -71,8 +71,8 @@ class DynamicFormRequest extends AbstractFormRequest
                 continue;
             }
 
-            $rule[] = $column->type;
-            $rule[] = $column->required ? self::REQUIRED : self::OPTIONAL;
+            $rule[] = $this->getType($column->type);
+            $rule[] = $this->getRequired($column->required);
 
             if ($this->sometimes)
             {
@@ -83,6 +83,62 @@ class DynamicFormRequest extends AbstractFormRequest
         }
 
         return $rules;
+    }
+
+    #endregion
+
+    #region PRIVATE METHODS
+
+    /**
+     * @param bool $required
+     *
+     * @return string
+     */
+    private function getRequired(bool $required): string
+    {
+        $rule = $required ? self::REQUIRED : self::OPTIONAL;
+
+        return $rule;
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return mixed
+     */
+    private function getType(string $type): mixed
+    {
+        $rule = '';
+
+        switch ($type)
+        {
+            case DBTypes::BIGINT:
+            case DBTypes::INT:
+                $rule = self::TYPE_NUMERIC;
+                break;
+            case DBTypes::TINYINT:
+                $rule = self::TYPE_BOOLEAN;
+                break;
+            case DBTypes::DATE:
+                $rule = self::TYPE_DATE;
+                break;
+            case DBTypes::DATETIME:
+                $rule = self::TYPE_DATE;
+                break;
+            case DBTypes::DOUBLE:
+            case DBTypes::FLOAT:
+                $rule = self::TYPE_NUMERIC;
+                break;
+            case DBTypes::TEXT:
+            case DBTypes::VARCHAR:
+                $rule = self::TYPE_STRING;
+                break;
+            case DBTypes::TIME:
+                $rule = self::TYPE_TIME;
+                break;
+        }
+
+        return $rule;
     }
 
     #endregion
