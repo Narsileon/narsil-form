@@ -152,9 +152,9 @@ abstract class AbstractForm
                 {
                     FormNodeOption::firstOrCreate([
                         FormNodeOption::NODE_ID => $formNode->{FormNode::ID},
-                        FormNodeOption::VALUE => $option['value'] ?? $option,
+                        FormNodeOption::VALUE => $option[FormNodeOption::VALUE] ?? $option,
                     ], [
-                        FormNodeOption::LABEL => $option['label'] ?? $option,
+                        FormNodeOption::LABEL => $option[FormNodeOption::LABEL] ?? $option,
                     ]);
                 }
             }
