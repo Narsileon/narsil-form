@@ -12,9 +12,9 @@ abstract class FormsConfig
     #region CONSTANTS
 
     /**
-     * @var string
+     * @var string List of forms keyed by model.
      */
-    final public const PATHS = 'narsil-forms.paths';
+    final public const FORMS = 'narsil-forms.forms';
 
     #endregion
 }
