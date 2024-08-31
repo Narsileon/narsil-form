@@ -86,7 +86,7 @@ abstract class FormInput extends AbstractFormNode
     {
         $identifier = $this->removeRelationshipFromIdentifier($identifier);
 
-        return $identifier;
+        return "validation.attributes.$identifier";
     }
 
     /**
