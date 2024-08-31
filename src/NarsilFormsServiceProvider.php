@@ -28,6 +28,7 @@ final class NarsilFormsServiceProvider extends ServiceProvider
     {
         $this->bootBlueprints();
         $this->bootMigrations();
+        $this->bootPublishes();
         $this->bootTranslations();
     }
 
@@ -62,6 +63,16 @@ final class NarsilFormsServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom([
             __DIR__ . '/../database/migrations',
         ]);
+    }
+
+    /**
+     * @return void
+     */
+    private function bootPublishes(): void
+    {
+        $this->publishes([
+            __DIR__ . './Config' => config_path(),
+        ], 'config');
     }
 
     /**
