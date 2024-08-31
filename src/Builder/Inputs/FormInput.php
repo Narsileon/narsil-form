@@ -85,9 +85,8 @@ abstract class FormInput extends AbstractFormNode
     private function getLabelFromIdentifier(string $identifier): string
     {
         $identifier = $this->removeRelationshipFromIdentifier($identifier);
-        $identifier = $this->removeUnderscoreFromIdentifier($identifier);
 
-        return ucfirst($identifier);
+        return $identifier;
     }
 
     /**
@@ -103,16 +102,6 @@ abstract class FormInput extends AbstractFormNode
         }
 
         return $identifier;
-    }
-
-    /**
-     * @param string $identifier
-     *
-     * @return string
-     */
-    private function removeUnderscoreFromIdentifier(string $identifier): string
-    {
-        return str_replace('_', ' ', $identifier);
     }
 
     #endregion
