@@ -30,7 +30,10 @@ function generateFormSchema(nodes: FormNodeModel[]) {
 	nodes.map((node) => {
 		let schema: z.ZodTypeAny;
 
-		switch (node.node_type) {
+        switch (node.node_type) {
+			case "editor":
+				schema = z.number();
+				break;
 			case "number":
 				schema = z.number();
 				break;

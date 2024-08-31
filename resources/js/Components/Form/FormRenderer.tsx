@@ -73,9 +73,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "editor":
 								return (
 									<FormItem>
-										<div className='flex items-center justify-between'>
-											<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
-										</div>
+										<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
 										<FormControl>
 											<RichTextEditor
 												id={node.identifier}
@@ -112,9 +110,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 
 								return (
 									<FormItem>
-										<div className='flex items-center justify-between'>
-											<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
-										</div>
+										<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
 										<FormControl>
 											{node.parameters?.fetch ? (
 												<AsyncCombobox
@@ -156,9 +152,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							default:
 								return (
 									<FormItem>
-										<div className='flex items-center justify-between'>
-											<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
-										</div>
+										<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
 										<FormControl>
 											<Input
 												id={node.identifier}
