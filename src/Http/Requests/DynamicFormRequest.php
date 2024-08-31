@@ -5,6 +5,7 @@ namespace Narsil\Forms\Http\Requests;
 #region USE
 
 use Narsil\Tables\Constants\DBTypes;
+use Narsil\Tables\Constants\Types;
 use Narsil\Tables\Services\TableService;
 
 #endregion
@@ -112,28 +113,25 @@ class DynamicFormRequest extends AbstractFormRequest
 
         switch ($type)
         {
-            case DBTypes::BIGINT:
-            case DBTypes::INT:
-                $rule = self::TYPE_NUMERIC;
-                break;
-            case DBTypes::TINYINT:
+            case Types::BOOLEAN:
                 $rule = self::TYPE_BOOLEAN;
                 break;
-            case DBTypes::DATE:
+            case Types::DATE:
                 $rule = self::TYPE_DATE;
                 break;
-            case DBTypes::DATETIME:
+            case Types::DATETIME:
                 $rule = self::TYPE_DATE;
                 break;
-            case DBTypes::DOUBLE:
-            case DBTypes::FLOAT:
+            case Types::DOUBLE:
+            case Types::FLOAT:
+            case Types::INTEGER:
                 $rule = self::TYPE_NUMERIC;
                 break;
-            case DBTypes::TEXT:
-            case DBTypes::VARCHAR:
+            case Types::STRING:
+            case Types::TEXT:
                 $rule = self::TYPE_STRING;
                 break;
-            case DBTypes::TIME:
+            case Types::TIME:
                 $rule = self::TYPE_TIME;
                 break;
         }
