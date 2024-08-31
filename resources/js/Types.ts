@@ -1,3 +1,5 @@
+import { Resource } from "@narsil-ui/Types";
+
 export type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch";
 
 export type FormModel = {
@@ -42,4 +44,10 @@ export type FormNodeOptionModel = {
 	node: FormNodeModel;
 	updated_at: string;
 	value: string;
+};
+
+export type FormResource<T> = Resource<T> & {
+	form: FormModel;
+	slug: string;
+	title: string;
 };

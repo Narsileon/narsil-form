@@ -4,6 +4,9 @@ namespace Narsil\Forms\Builder;
 
 #region USE
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 use Narsil\Forms\Models\Form;
 use Narsil\Forms\Models\FormNode;
 use Narsil\Forms\Models\FormNodeOption;
@@ -16,20 +19,23 @@ use Narsil\Forms\Http\Resources\FormResource;
  *
  * @author Jonathan Rigaux
  */
-abstract class AbstractForm
+abstract class AbstractForm extends JsonResource
 {
     #region CONSTRUCTOR
 
     /**
+     * @param mixed $resource
      * @param string $title
      * @param string $slug
      *
      * @return void
      */
-    public function __construct(string $title, string $slug)
+    public function __construct(mixed $resource, string $title, string $slug)
     {
         $this->slug = $slug;
         $this->title = $title;
+
+        parent::__construct($resource);
     }
 
     #endregion
@@ -50,30 +56,37 @@ abstract class AbstractForm
     #region PUBLIC METHODS
 
     /**
-     * @return FormResource
+     * @param Request $request
+     *
+     * @return array
      */
-    final public function get(): FormResource
+    public function toArray(Request $request): array
     {
-        $form = $this->getForm();
+        $attributes = [];
 
-        return new FormResource($form, $this->getOptions());
+        $attributes = $this->resource?->toArray();
+
+        return $attributes;
     }
 
     /**
-     * @return Form
+     * @param Request $request
+     *
+     * @return array
      */
-    final public function getForm(): Form
+    public function with($request): array
     {
-        $form = Form::firstWhere(Form::SLUG);
+        $form = new FormResource($this->getForm(), $this->getOptions());;
+        $meta = $this->getMeta();
+        $slug = $this->getSlug();
+        $title = $this->getTitle();
 
-        if (!$form)
-        {
-            $schema = $this->getSchema();
-
-            $form = $this->createForm($schema);
-        }
-
-        return $form;
+        return compact(
+            'form',
+            'meta',
+            'slug',
+            'title',
+        );
     }
 
     #endregion
@@ -164,6 +177,39 @@ abstract class AbstractForm
                 $this->createFormNodesRecursively($form, $children, $formNode);
             }
         }
+    }
+
+    /**
+     * @return Form
+     */
+    private function getForm(): Form
+    {
+        $form = Form::firstWhere(Form::SLUG);
+
+        if (!$form)
+        {
+            $schema = $this->getSchema();
+
+            $form = $this->createForm($schema);
+        }
+
+        return $form;
+    }
+
+    /**
+     * @return string
+     */
+    private function getSlug(): string
+    {
+        return Str::slug($this->resource->getTable());
+    }
+
+    /**
+     * @return string
+     */
+    private function getTitle(): string
+    {
+        return ucfirst(str_replace('_', ' ', $this->resource->getTable()));
     }
 
     #endregion
