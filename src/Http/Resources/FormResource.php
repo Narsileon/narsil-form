@@ -6,7 +6,6 @@ namespace Narsil\Forms\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Str;
 use Narsil\Forms\Models\Form;
 use Narsil\Forms\Models\FormNode;
 
@@ -69,36 +68,6 @@ class FormResource extends JsonResource
         ];
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return array
-     */
-    public function with($request): array
-    {
-        $meta = $this->getMeta();
-        $slug = $this->getSlug();
-        $title = $this->getTitle();
-
-        return compact(
-            'meta',
-            'slug',
-            'title',
-        );
-    }
-
-    #endregion
-
-    #region PROTECTED METHODS
-
-    /**
-     * @return array
-     */
-    protected function getMeta(): array
-    {
-        return [];
-    }
-
     #endregion
 
     #region PRIVATE METHODS
@@ -125,22 +94,6 @@ class FormResource extends JsonResource
         }
 
         return array_merge($options, $this->options);
-    }
-
-    /**
-     * @return string
-     */
-    private function getSlug(): string
-    {
-        return Str::slug($this->resource->getTable());
-    }
-
-    /**
-     * @return string
-     */
-    private function getTitle(): string
-    {
-        return ucfirst(str_replace('_', ' ', $this->resource->getTable()));
     }
 
     #endregion
