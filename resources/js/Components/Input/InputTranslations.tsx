@@ -1,17 +1,19 @@
 import { ChevronDown } from "lucide-react";
-import { cn } from "@narsil-ui/Components";
 import { ControllerRenderProps, UseFormReturn } from "react-hook-form";
-import { DropdownMenuContent, DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { TranslationModel } from "@narsil-localization/Types";
+import { upperCase } from "lodash";
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
+import AsyncCombobox from "@narsil-ui/Components/Combobox/AsyncCombobox";
 import Button from "@narsil-ui/Components/Button/Button";
-import Combobox from "@narsil-ui/Components/Combobox/Combobox";
+import Card from "@narsil-ui/Components/Card/Card";
+import CardContent from "@narsil-ui/Components/Card/CardContent";
 import DropdownMenu from "@narsil-ui/Components/DropdownMenu/DropdownMenu";
+import DropdownMenuContent from "@narsil-ui/Components/DropdownMenu/DropdownMenuContent";
+import DropdownMenuItem from "@narsil-ui/Components/DropdownMenu/DropdownMenuItem";
 import DropdownMenuTrigger from "@narsil-ui/Components/DropdownMenu/DropdownMenuTrigger";
 import Input from "@narsil-ui/Components/Input/Input";
 import TooltipWrapper from "@narsil-ui/Components/Tooltip/TooltipWrapper";
-import AsyncCombobox from "@narsil-ui/Components/Combobox/AsyncCombobox";
 
 export type InputTranslationType = TranslationModel & {
 	values: Record<string, string>;
@@ -30,46 +32,51 @@ const InputTranslations = React.forwardRef<HTMLDivElement, InputTranslationsProp
 		const [InputTranslations, setInputTranslations] = React.useState<InputTranslationType>(fieldTranslations);
 
 		return (
-			<div ref={ref}>
-				<AsyncCombobox
-					fetch={"translations.fetch"}
-					value={InputTranslations.id}
-					valueKey='id'
-					labelKey='value'
-				/>
-				<DropdownMenu>
-					<TooltipWrapper tooltip={trans("language")}>
-						<DropdownMenuTrigger
-							className='group'
-							asChild={true}
-						>
-							<Button className={cn("gap-x-1")}>
-								{inputLocale}
-								<ChevronDown className='h-5 w-5 transition-transform duration-200 group-aria-expanded:rotate-180' />
-							</Button>
-						</DropdownMenuTrigger>
-					</TooltipWrapper>
+			<Card ref={ref}>
+				<CardContent>
+					<AsyncCombobox
+						fetch={route("translations.fetch")}
+						value={InputTranslations?.id}
+						valueKey='id'
+						labelKey={`values.${locale}`}
+						onChange={(value) => setInputTranslations(value)}
+					/>
+					<div className='flex items-center'>
+						<Input
+							className='rounded-r-none'
+							{...props}
+						/>
+						<DropdownMenu>
+							<TooltipWrapper tooltip={trans("language")}>
+								<DropdownMenuTrigger asChild={true}>
+									<Button
+										className='w-20 min-w-20 justify-between rounded-l-none'
+										variant='secondary'
+									>
+										{upperCase(inputLocale)}
+										<ChevronDown className='h-5 w-5 transition-transform duration-200 group-aria-expanded:rotate-180' />
+									</Button>
+								</DropdownMenuTrigger>
+							</TooltipWrapper>
 
-					<DropdownMenuContent>
-						{languages.map((language, index) => {
-							return (
-								<DropdownMenuItem
-									onClick={() => {
-										setInputLocale(language.locale);
-									}}
-									key={index}
-								>
-									{language.language}
-								</DropdownMenuItem>
-							);
-						})}
-					</DropdownMenuContent>
-				</DropdownMenu>
-				<Input
-					value={inp}
-					{...props}
-				/>
-			</div>
+							<DropdownMenuContent>
+								{languages.map((language, index) => {
+									return (
+										<DropdownMenuItem
+											onClick={() => {
+												setInputLocale(language.locale);
+											}}
+											key={index}
+										>
+											{language.language}
+										</DropdownMenuItem>
+									);
+								})}
+							</DropdownMenuContent>
+						</DropdownMenu>
+					</div>
+				</CardContent>
+			</Card>
 		);
 	}
 );
