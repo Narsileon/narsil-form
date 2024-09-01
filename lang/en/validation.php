@@ -170,7 +170,7 @@ return [
         'type'          => 'Type',
         'updated_at'    => 'Updated at',
         'updated_by'    => 'Updated by',
-        'URL'           => 'URL',
+        'url'           => 'URL',
         'value'         => 'Value',
     ],
 ];
