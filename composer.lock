@@ -1128,16 +1128,16 @@
 		},
 		{
 			"name": "laravel/framework",
-			"version": "v11.21.0",
+			"version": "v11.22.0",
 			"source": {
 				"type": "git",
 				"url": "https://github.com/laravel/framework.git",
-				"reference": "9d9d36708d56665b12185493f684abce38ad2d30"
+				"reference": "868c75beacc47d0f361b919bbc155c0b619bf3d5"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/laravel/framework/zipball/9d9d36708d56665b12185493f684abce38ad2d30",
-				"reference": "9d9d36708d56665b12185493f684abce38ad2d30",
+				"url": "https://api.github.com/repos/laravel/framework/zipball/868c75beacc47d0f361b919bbc155c0b619bf3d5",
+				"reference": "868c75beacc47d0f361b919bbc155c0b619bf3d5",
 				"shasum": ""
 			},
 			"require": {
@@ -1330,7 +1330,7 @@
 				"issues": "https://github.com/laravel/framework/issues",
 				"source": "https://github.com/laravel/framework"
 			},
-			"time": "2024-08-20T15:00:52+00:00"
+			"time": "2024-09-03T15:27:15+00:00"
 		},
 		{
 			"name": "laravel/prompts",
@@ -1934,12 +1934,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Narsileon/narsil-localization.git",
-				"reference": "4ada3afdb6ab76d6e82855c8e5c8e2042c5627e7"
+				"reference": "74fedc0f90be16a8cc1ec1c3006b8e53bc58547a"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/4ada3afdb6ab76d6e82855c8e5c8e2042c5627e7",
-				"reference": "4ada3afdb6ab76d6e82855c8e5c8e2042c5627e7",
+				"url": "https://api.github.com/repos/Narsileon/narsil-localization/zipball/74fedc0f90be16a8cc1ec1c3006b8e53bc58547a",
+				"reference": "74fedc0f90be16a8cc1ec1c3006b8e53bc58547a",
 				"shasum": ""
 			},
 			"require": {
@@ -1989,7 +1989,7 @@
 				"source": "https://github.com/Narsileon/narsil-localization/tree/main",
 				"issues": "https://github.com/Narsileon/narsil-localization/issues"
 			},
-			"time": "2024-09-01T14:41:27+00:00"
+			"time": "2024-09-04T09:34:02+00:00"
 		},
 		{
 			"name": "narsil/menus",
@@ -2239,12 +2239,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Narsileon/narsil-tables.git",
-				"reference": "a22de9904939e1266f23799a293e82eed4fc35f3"
+				"reference": "ae4eb9424ad26e09b4c8e941ed0120ee59d7976e"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Narsileon/narsil-tables/zipball/a22de9904939e1266f23799a293e82eed4fc35f3",
-				"reference": "a22de9904939e1266f23799a293e82eed4fc35f3",
+				"url": "https://api.github.com/repos/Narsileon/narsil-tables/zipball/ae4eb9424ad26e09b4c8e941ed0120ee59d7976e",
+				"reference": "ae4eb9424ad26e09b4c8e941ed0120ee59d7976e",
 				"shasum": ""
 			},
 			"require": {
@@ -2293,7 +2293,7 @@
 				"source": "https://github.com/Narsileon/narsil-tables/tree/main",
 				"issues": "https://github.com/Narsileon/narsil-tables/issues"
 			},
-			"time": "2024-09-01T10:22:41+00:00"
+			"time": "2024-09-04T05:04:56+00:00"
 		},
 		{
 			"name": "narsil/tree",
@@ -2361,12 +2361,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Narsileon/narsil-ui.git",
-				"reference": "1b09f8e7f6210c53a5d817c8494c762f6747d4be"
+				"reference": "bf3e4fba7b412bae44ed03de69bfc8df25cbb551"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/1b09f8e7f6210c53a5d817c8494c762f6747d4be",
-				"reference": "1b09f8e7f6210c53a5d817c8494c762f6747d4be",
+				"url": "https://api.github.com/repos/Narsileon/narsil-ui/zipball/bf3e4fba7b412bae44ed03de69bfc8df25cbb551",
+				"reference": "bf3e4fba7b412bae44ed03de69bfc8df25cbb551",
 				"shasum": ""
 			},
 			"require": {
@@ -2414,7 +2414,7 @@
 				"source": "https://github.com/Narsileon/narsil-ui/tree/main",
 				"issues": "https://github.com/Narsileon/narsil-ui/issues"
 			},
-			"time": "2024-09-01T12:32:58+00:00"
+			"time": "2024-09-04T09:36:53+00:00"
 		},
 		{
 			"name": "nesbot/carbon",
@@ -6672,16 +6672,16 @@
 		},
 		{
 			"name": "phpunit/phpunit",
-			"version": "11.3.1",
+			"version": "11.3.2",
 			"source": {
 				"type": "git",
 				"url": "https://github.com/sebastianbergmann/phpunit.git",
-				"reference": "fe179875ef0c14e90b75617002767eae0a742641"
+				"reference": "8a4de85cc4a78c59dd31cc4ef454b0029f8440dc"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fe179875ef0c14e90b75617002767eae0a742641",
-				"reference": "fe179875ef0c14e90b75617002767eae0a742641",
+				"url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8a4de85cc4a78c59dd31cc4ef454b0029f8440dc",
+				"reference": "8a4de85cc4a78c59dd31cc4ef454b0029f8440dc",
 				"shasum": ""
 			},
 			"require": {
@@ -6695,8 +6695,8 @@
 				"phar-io/manifest": "^2.0.4",
 				"phar-io/version": "^3.2.1",
 				"php": ">=8.2",
-				"phpunit/php-code-coverage": "^11.0.5",
-				"phpunit/php-file-iterator": "^5.0.1",
+				"phpunit/php-code-coverage": "^11.0.6",
+				"phpunit/php-file-iterator": "^5.1.0",
 				"phpunit/php-invoker": "^5.0.1",
 				"phpunit/php-text-template": "^4.0.1",
 				"phpunit/php-timer": "^7.0.1",
@@ -6752,7 +6752,7 @@
 			"support": {
 				"issues": "https://github.com/sebastianbergmann/phpunit/issues",
 				"security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-				"source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.1"
+				"source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.2"
 			},
 			"funding": [
 				{
@@ -6768,7 +6768,7 @@
 					"type": "tidelift"
 				}
 			],
-			"time": "2024-08-13T06:14:23+00:00"
+			"time": "2024-09-03T12:00:26+00:00"
 		},
 		{
 			"name": "sebastian/cli-parser",
