@@ -25,21 +25,6 @@ export interface useFormProps {
 	form: FormModel;
 }
 
-export const transSchema = (languages: LanguageModel[]) => {
-	return z.object({
-		id: z.number().optional(),
-		values: z.object(
-			languages.reduce(
-				(acc, language) => {
-					acc[language.locale] = z.string().optional();
-					return acc;
-				},
-				{} as Record<string, ZodOptional<ZodString>>
-			)
-		),
-	});
-};
-
 function generateFormSchema(nodes: FormNodeModel[]) {
 	const schemaObject: Record<string, z.Schema> = {};
 
