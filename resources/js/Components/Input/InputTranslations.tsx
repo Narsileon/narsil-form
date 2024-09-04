@@ -29,7 +29,7 @@ const InputTranslations = React.forwardRef<HTMLDivElement, InputTranslationsProp
 						fetch={route("translations.fetch")}
 						value={InputTranslations?.id}
 						valueKey='id'
-						labelKey={`values.${contextLanguage.locale}`}
+						labelKey={`values.${contextLanguage?.locale}`}
 						onChange={(value) => setInputTranslations(value)}
 					/>
 					<div className='flex items-center'>
