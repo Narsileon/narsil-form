@@ -1,6 +1,7 @@
 import { FormModel, FormNodeModel } from "@narsil-forms/Types";
+import { LanguageModel } from "@narsil-localization/Types";
 import { useForm as useReactForm } from "react-hook-form";
-import { z } from "zod";
+import { z, ZodOptional, ZodString } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export function getRequiredFields(schema: z.ZodObject<any>) {
@@ -23,6 +24,21 @@ export interface useFormProps {
 	data?: Record<string, any>;
 	form: FormModel;
 }
+
+export const transSchema = (languages: LanguageModel[]) => {
+	return z.object({
+		id: z.number().optional(),
+		values: z.object(
+			languages.reduce(
+				(acc, language) => {
+					acc[language.locale] = z.string().optional();
+					return acc;
+				},
+				{} as Record<string, ZodOptional<ZodString>>
+			)
+		),
+	});
+};
 
 function generateFormSchema(nodes: FormNodeModel[]) {
 	const schemaObject: Record<string, z.Schema> = {};
