@@ -56,8 +56,12 @@ function generateFormSchema(nodes: FormNodeModel[], languages: LanguageModel[]) 
 				return;
 		}
 
-		if (node.min && schema instanceof z.ZodString) {
-			schema = schema.min(Number(node.min));
+		if (schema instanceof z.ZodString) {
+			if (node.min) {
+				schema = schema.min(Number(node.min));
+			} else if (node.required) {
+				schema = schema.min(1);
+			}
 		}
 		if (node.max && schema instanceof z.ZodString) {
 			schema = schema.max(Number(node.max));

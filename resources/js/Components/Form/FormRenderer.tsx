@@ -77,11 +77,16 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "editor":
 								return (
 									<FormItem>
-										<FormLabel htmlFor={id}>{node.label}</FormLabel>
+										<FormLabel
+											htmlFor={id}
+											required={node.required}
+										>
+											{node.label}
+										</FormLabel>
 										<FormControl>
 											<RichTextEditor
-												id={id}
 												{...field}
+												id={id}
 											/>
 										</FormControl>
 										<FormMessage />
@@ -114,23 +119,28 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 
 								return (
 									<FormItem>
-										<FormLabel htmlFor={id}>{node.label}</FormLabel>
+										<FormLabel
+											htmlFor={id}
+											required={node.required}
+										>
+											{node.label}
+										</FormLabel>
 										<FormControl>
 											{node.parameters?.fetch ? (
 												<AsyncCombobox
-													id={id}
 													{...field}
+													id={id}
 													fetch={node.parameters.fetch}
 													labelKey={node.parameters.label_key}
-													valueKey={node.parameters.value_key}
 													preview={node.parameters.preview}
+													valueKey={node.parameters.value_key}
 												/>
 											) : (
 												<Combobox
-													id={id}
 													{...field}
-													options={optionsProps.options}
+													id={id}
 													labelKey={node.parameters?.label_key}
+													options={optionsProps.options}
 													valueKey={node.parameters?.value_key}
 												/>
 											)}
@@ -141,12 +151,17 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "switch":
 								return (
 									<FormItem orientation='horizontal'>
-										<FormLabel htmlFor={id}>{node.label + trans(":")}</FormLabel>
+										<FormLabel
+											htmlFor={id}
+											required={node.required}
+										>
+											{node.label + trans(":")}
+										</FormLabel>
 
 										<FormControl>
 											<Switch
-												id={id}
 												{...field}
+												id={id}
 											/>
 										</FormControl>
 										<FormMessage />
@@ -155,11 +170,18 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "trans":
 								return (
 									<FormItem>
-										<FormLabel htmlFor={id}>{node.label}</FormLabel>
+										<div className='flex items-center gap-x-2'>
+											<FormLabel
+												htmlFor={id}
+												required={node.required}
+											>
+												{node.label}
+											</FormLabel>
+										</div>
 										<FormControl>
 											<Input
-												id={id}
 												{...field}
+												id={id}
 												autoComplete={node.auto_complete}
 												type={node.type ?? "text"}
 											/>
@@ -174,11 +196,16 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							default:
 								return (
 									<FormItem>
-										<FormLabel htmlFor={id}>{node.label}</FormLabel>
+										<FormLabel
+											htmlFor={id}
+											required={node.required}
+										>
+											{node.label}
+										</FormLabel>
 										<FormControl>
 											<Input
-												id={id}
 												{...field}
+												id={id}
 												autoComplete={node.auto_complete}
 												type={node.type ?? "text"}
 											/>
