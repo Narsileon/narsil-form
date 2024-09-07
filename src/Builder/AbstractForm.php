@@ -9,6 +9,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
 use Narsil\Forms\Http\Resources\FormResource;
 use Narsil\Forms\Services\FormService;
+use Narsil\Localization\Interfaces\IHasTranslations;
+use Narsil\Localization\Traits\HasTranslations;
 
 #endregion
 
@@ -76,7 +78,18 @@ abstract class AbstractForm extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $attributes = $this->resource ? $this->resource->toArray() : [];
+
+        if (!$this->resource)
+        {
+            return [];
+        }
+
+        if (in_array(HasTranslations::class, class_uses_recursive($this->resource::class)))
+        {
+            $this->resource->append(IHasTranslations::ATTRIBUTE_TRANSLATIONS);
+        }
+
+        $attributes = $this->resource->toArray();
 
         return $attributes;
     }
