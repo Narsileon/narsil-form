@@ -1,5 +1,6 @@
 import { FormNodeModel } from "@narsil-forms/Types";
 import { useFormContext } from "react-hook-form";
+import { useLanguageContext } from "@narsil-localization/Components/Language/LanguageProvider";
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
 import AsyncCombobox from "@narsil-ui/Components/Combobox/AsyncCombobox";
@@ -37,18 +38,21 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 	const { trans } = useTranslationsStore();
 
 	const { control } = useFormContext();
+	const { contextLocale } = useLanguageContext();
 
 	return nodes
 		.filter((x) => x.parent_id === (parentNode ? parentNode.id : null))
-		.map((node, index) => {
+		.map((node) => {
 			if (node.identifier === "active") {
 				return null;
 			}
 
+			const id = node.node_type === "trans" ? `${node.identifier}.${contextLocale}` : node.identifier;
+
 			return (
 				<FormField
 					control={control}
-					name={node.identifier}
+					name={id}
 					render={({ field }) => {
 						switch (node.node_type) {
 							case "card":
@@ -73,10 +77,10 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "editor":
 								return (
 									<FormItem>
-										<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
+										<FormLabel htmlFor={id}>{node.label}</FormLabel>
 										<FormControl>
 											<RichTextEditor
-												id={node.identifier}
+												id={id}
 												{...field}
 											/>
 										</FormControl>
@@ -106,15 +110,15 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 									</Fullscreen>
 								);
 							case "select":
-								const optionsProps = options[node.identifier] ?? {};
+								const optionsProps = options[id] ?? {};
 
 								return (
 									<FormItem>
-										<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
+										<FormLabel htmlFor={id}>{node.label}</FormLabel>
 										<FormControl>
 											{node.parameters?.fetch ? (
 												<AsyncCombobox
-													id={node.identifier}
+													id={id}
 													{...field}
 													fetch={node.parameters.fetch}
 													labelKey={node.parameters.label_key}
@@ -123,7 +127,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 												/>
 											) : (
 												<Combobox
-													id={node.identifier}
+													id={id}
 													{...field}
 													options={optionsProps.options}
 													labelKey={node.parameters?.label_key}
@@ -137,25 +141,43 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "switch":
 								return (
 									<FormItem orientation='horizontal'>
-										<FormLabel htmlFor={node.identifier}>{node.label + trans(":")}</FormLabel>
+										<FormLabel htmlFor={id}>{node.label + trans(":")}</FormLabel>
 
 										<FormControl>
 											<Switch
-												id={node.identifier}
+												id={id}
 												{...field}
 											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
 								);
+							case "trans":
+								return (
+									<FormItem>
+										<FormLabel htmlFor={id}>{node.label}</FormLabel>
+										<FormControl>
+											<Input
+												id={id}
+												{...field}
+												autoComplete={node.auto_complete}
+												type={node.type ?? "text"}
+											/>
+										</FormControl>
+										{node.description ? (
+											<FormDescription>{node.description}</FormDescription>
+										) : null}
 
+										<FormMessage />
+									</FormItem>
+								);
 							default:
 								return (
 									<FormItem>
-										<FormLabel htmlFor={node.identifier}>{node.label}</FormLabel>
+										<FormLabel htmlFor={id}>{node.label}</FormLabel>
 										<FormControl>
 											<Input
-												id={node.identifier}
+												id={id}
 												{...field}
 												autoComplete={node.auto_complete}
 												type={node.type ?? "text"}
@@ -170,7 +192,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 								);
 						}
 					}}
-					key={index}
+					key={id}
 				/>
 			);
 		});

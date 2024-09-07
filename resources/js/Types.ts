@@ -1,6 +1,6 @@
 import { Resource } from "@narsil-ui/Types";
 
-export type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch";
+export type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch" | "trans";
 
 export type FormModel = {
 	active: boolean;
