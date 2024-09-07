@@ -104,7 +104,7 @@ const useForm = ({ data = {}, form, languages = [] }: useFormProps) => {
 				const node = form.nodes?.find((x) => x.identifier === key);
 
 				if (node?.node_type === "trans") {
-					const values = data.translations?.[key]?.values;
+					const values = data.translations?.[key];
 
 					return [key, values ?? value];
 				}
