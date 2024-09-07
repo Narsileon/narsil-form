@@ -38,7 +38,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 	const { trans } = useTranslationsStore();
 
 	const { control } = useFormContext();
-	const { contextLocale } = useLanguageContext();
+	const { contextLanguage } = useLanguageContext();
 
 	return nodes
 		.filter((x) => x.parent_id === (parentNode ? parentNode.id : null))
@@ -47,7 +47,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 				return null;
 			}
 
-			const id = node.node_type === "trans" ? `${node.identifier}.values.${contextLocale}` : node.identifier;
+			const id = node.node_type === "trans" ? `${node.identifier}.values.${contextLanguage.id}` : node.identifier;
 
 			return (
 				<FormField

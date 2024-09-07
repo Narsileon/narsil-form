@@ -8,10 +8,10 @@ export const transSchema = (languages: LanguageModel[]) => {
 		values: z.object(
 			languages.reduce(
 				(acc, language) => {
-					acc[language.locale] = z.string().optional();
+					acc[language.id] = z.string().optional();
 					return acc;
 				},
-				{} as Record<string, ZodOptional<ZodString>>
+				{} as Record<number, ZodOptional<ZodString>>
 			)
 		),
 	});
