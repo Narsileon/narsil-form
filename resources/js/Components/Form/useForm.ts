@@ -98,9 +98,25 @@ const useForm = ({ data = {}, form, languages = [] }: useFormProps) => {
 		);
 	})();
 
+	const initialValues = (() => {
+		return Object.fromEntries(
+			Object.entries(data).map(([key, value]) => {
+				const node = form.nodes?.find((x) => x.identifier === key);
+
+				if (node?.node_type === "trans") {
+					const values = data.translations?.[key]?.values;
+
+					return [key, values ?? value];
+				}
+
+				return [key, value];
+			})
+		);
+	})();
+
 	const reactForm = useReactForm<z.infer<typeof schema>>({
 		resolver: zodResolver(schema),
-		defaultValues: { ...defaultValues, ...data },
+		defaultValues: { ...defaultValues, ...initialValues },
 	});
 
 	return reactForm;
