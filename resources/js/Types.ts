@@ -1,4 +1,5 @@
-import { Resource } from "@narsil-ui/Types";
+import type { ModelCommentModel } from "@narsil-tables/Types";
+import type { Resource } from "@narsil-ui/Types";
 
 export type FormNodeNodeType = "card" | "editor" | "number" | "section" | "select" | "string" | "switch" | "trans";
 
@@ -48,6 +49,7 @@ export type FormNodeOptionModel = {
 };
 
 export type FormResource<T> = Resource<T> & {
+	comments: ModelCommentModel[];
 	form: FormModel;
 	slug: string;
 	title: string;

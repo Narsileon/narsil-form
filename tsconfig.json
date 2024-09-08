@@ -10,6 +10,7 @@
 		"paths": {
 			"@narsil-forms/*": ["./resources/js/*"],
 			"@narsil-localization/*": ["./vendor/narsil/localization/resources/js/*"],
+			"@narsil-tables/*": ["./vendor/narsil/tables/resources/js/*"],
 			"@narsil-ui/*": ["./vendor/narsil/ui/resources/js/*"]
 		},
 		"resolveJsonModule": true,
