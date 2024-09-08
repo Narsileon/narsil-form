@@ -3,7 +3,7 @@ import { z, ZodOptional, ZodString } from "zod";
 
 export const transSchema = (languages: LanguageModel[]) => {
 	return z.object({
-		default_value: z.string().nullable(),
+		default_value: z.string().min(1),
 		id: z.number().optional(),
 		values: z.object(
 			languages.reduce(

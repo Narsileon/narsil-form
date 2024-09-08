@@ -195,6 +195,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 												{...field}
 												id={id}
 												autoComplete={node.auto_complete}
+												placeholder={`${node.identifier}.default_value`}
 												type={node.type ?? "text"}
 											/>
 										</FormControl>
