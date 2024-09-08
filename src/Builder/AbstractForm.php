@@ -4,6 +4,7 @@ namespace Narsil\Forms\Builder;
 
 #region USE
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
@@ -11,6 +12,7 @@ use Narsil\Forms\Http\Resources\FormResource;
 use Narsil\Forms\Services\FormService;
 use Narsil\Localization\Interfaces\IHasTranslations;
 use Narsil\Localization\Traits\HasTranslations;
+use Narsil\Tables\Models\ModelComment;
 
 #endregion
 
@@ -101,11 +103,13 @@ abstract class AbstractForm extends JsonResource
      */
     public function with($request): array
     {
+        $comments = $this->getComments();
         $form = $this->getForm();
         $meta = $this->getMeta();
         $slug = $this->getSlug();
 
         return compact(
+            'comments',
             'form',
             'meta',
             'slug',
@@ -140,6 +144,24 @@ abstract class AbstractForm extends JsonResource
     #endregion
 
     #region PRIVATE METHODS
+
+    /**
+     * @return Collection<ModelComment>
+     */
+    private function getComments(): Collection
+    {
+        if (!$this->resource)
+        {
+            return collect();
+        }
+
+        $comments = ModelComment::query()
+            ->where(ModelComment::MODEL_TYPE, '=', $this->resource::class)
+            ->where(ModelComment::MODEL_ID, '=', $this->resource->id)
+            ->get();
+
+        return $comments;
+    }
 
     /**
      * @return string|null
