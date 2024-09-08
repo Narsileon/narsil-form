@@ -101,13 +101,11 @@ abstract class AbstractForm extends JsonResource
      */
     public function with($request): array
     {
-        $comments = $this->getComments();
         $form = $this->getForm();
         $meta = $this->getMeta();
         $slug = $this->getSlug();
 
         return compact(
-            'comments',
             'form',
             'meta',
             'slug',
