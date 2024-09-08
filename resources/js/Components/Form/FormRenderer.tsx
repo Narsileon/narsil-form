@@ -1,4 +1,5 @@
 import { FormNodeModel } from "@narsil-forms/Types";
+import { Languages } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 import { useLanguageContext } from "@narsil-localization/Components/Language/LanguageProvider";
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
@@ -26,6 +27,7 @@ import SectionFooter from "@narsil-ui/Components/Section/SectionFooter";
 import SectionHeader from "@narsil-ui/Components/Section/SectionHeader";
 import SectionTitle from "@narsil-ui/Components/Section/SectionTitle";
 import Switch from "@narsil-ui/Components/Switch/Switch";
+import TooltipWrapper from "@narsil-ui/Components/Tooltip/TooltipWrapper";
 
 export interface FormRendererProps {
 	footer?: React.ReactNode;
@@ -170,13 +172,16 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 							case "trans":
 								return (
 									<FormItem>
-										<div className='flex items-center gap-x-2'>
+										<div className='flex items-center gap-x-1'>
 											<FormLabel
 												htmlFor={id}
 												required={node.required}
 											>
 												{node.label}
 											</FormLabel>
+											<TooltipWrapper tooltip={trans("Translatable")}>
+												<Languages className='h-4 w-4' />
+											</TooltipWrapper>
 										</div>
 										<FormControl>
 											<Input

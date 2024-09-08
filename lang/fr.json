@@ -4,5 +4,6 @@
 	"Label": "Désignation",
 	"Placeholder": "Marque substitutive",
 	"Placeholders": "Marques substitutives",
-	"Required": "Obligatoire"
+	"Required": "Obligatoire",
+	"Translatable": "Traduisible"
 }

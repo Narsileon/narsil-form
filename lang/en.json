@@ -4,5 +4,6 @@
 	"Label": "Label",
 	"Placeholder": "Placeholder",
 	"Placeholders": "Placeholders",
-	"Required": "Required"
+	"Required": "Required",
+	"Translatable": "Translatable"
 }

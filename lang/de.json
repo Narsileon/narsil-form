@@ -4,5 +4,6 @@
 	"Label": "Bezeichnung",
 	"Placeholder": "Platzhalter",
 	"Placeholders": "Platzhalter",
-	"Required": "Pflicht"
+	"Required": "Pflicht",
+	"Translatable": "übersetzbar"
 }
