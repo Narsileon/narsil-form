@@ -147,9 +147,9 @@ abstract class AbstractForm extends JsonResource
     #region PRIVATE METHODS
 
     /**
-     * @return Collection<ModelComment>
+     * @return ModelCommentCollection
      */
-    private function getComments(): Collection
+    private function getComments(): ModelCommentCollection
     {
         if (!$this->resource)
         {
