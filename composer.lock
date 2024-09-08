@@ -2539,12 +2539,12 @@
 			"source": {
 				"type": "git",
 				"url": "https://github.com/Narsileon/narsil-tables.git",
-				"reference": "4b0195cc7f861705553e183793671417e8f5edb7"
+				"reference": "445825042d5fb5c79a42e4a7a4f28082228501b8"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/Narsileon/narsil-tables/zipball/4b0195cc7f861705553e183793671417e8f5edb7",
-				"reference": "4b0195cc7f861705553e183793671417e8f5edb7",
+				"url": "https://api.github.com/repos/Narsileon/narsil-tables/zipball/445825042d5fb5c79a42e4a7a4f28082228501b8",
+				"reference": "445825042d5fb5c79a42e4a7a4f28082228501b8",
 				"shasum": ""
 			},
 			"require": {
@@ -2594,7 +2594,7 @@
 				"source": "https://github.com/Narsileon/narsil-tables/tree/main",
 				"issues": "https://github.com/Narsileon/narsil-tables/issues"
 			},
-			"time": "2024-09-08T12:25:17+00:00"
+			"time": "2024-09-08T12:53:05+00:00"
 		},
 		{
 			"name": "narsil/tree",

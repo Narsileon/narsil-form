@@ -12,6 +12,7 @@ use Narsil\Forms\Http\Resources\FormResource;
 use Narsil\Forms\Services\FormService;
 use Narsil\Localization\Interfaces\IHasTranslations;
 use Narsil\Localization\Traits\HasTranslations;
+use Narsil\Tables\Http\Resources\ModelCommentCollection;
 use Narsil\Tables\Models\ModelComment;
 
 #endregion
@@ -160,7 +161,7 @@ abstract class AbstractForm extends JsonResource
             ->where(ModelComment::MODEL_ID, '=', $this->resource->id)
             ->get();
 
-        return $comments;
+        return new ModelCommentCollection($comments);
     }
 
     /**
