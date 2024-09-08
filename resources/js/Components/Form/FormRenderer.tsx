@@ -177,7 +177,6 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 									</FormItem>
 								);
 							case "trans":
-								console.log(control.s);
 								return (
 									<FormItem>
 										<div className='flex items-center gap-x-1'>
