@@ -164,6 +164,8 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 											<Switch
 												{...field}
 												id={id}
+												checked={field.value}
+												onCheckedChange={field.onChange}
 											/>
 										</FormControl>
 										<FormMessage />
