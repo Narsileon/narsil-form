@@ -177,6 +177,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 									</FormItem>
 								);
 							case "trans":
+								console.log(control.s);
 								return (
 									<FormItem>
 										<div className='flex items-center gap-x-1'>
@@ -195,7 +196,7 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 												{...field}
 												id={id}
 												autoComplete={node.auto_complete}
-												placeholder={`${node.identifier}.default_value`}
+												placeholder={control._formValues[node.identifier]?.default_value}
 												type={node.type ?? "text"}
 											/>
 										</FormControl>

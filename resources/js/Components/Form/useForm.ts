@@ -1,6 +1,6 @@
 import { FormModel, FormNodeModel } from "@narsil-forms/Types";
+import { getTransDefault, getTransSchema } from "./formSchemas";
 import { LanguageModel } from "@narsil-localization/Types";
-import { transSchema } from "./formSchemas";
 import { useForm as useReactForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -50,7 +50,7 @@ function generateFormSchema(nodes: FormNodeModel[], languages: LanguageModel[]) 
 				schema = z.boolean();
 				break;
 			case "trans":
-				schema = transSchema(languages);
+				schema = getTransSchema(languages);
 				break;
 			default:
 				return;
@@ -97,6 +97,12 @@ const useForm = ({ data = {}, form, languages = [] }: useFormProps) => {
 	const defaultValues = (() => {
 		return Object.fromEntries(
 			Object.entries(schema.shape).map(([key, value]) => {
+				const node = form.nodes?.find((x) => x.identifier === key);
+
+				if (node?.node_type === "trans") {
+					return [key, getTransDefault(languages)];
+				}
+
 				return [key, value._def.defaultValue()];
 			})
 		);
@@ -110,7 +116,7 @@ const useForm = ({ data = {}, form, languages = [] }: useFormProps) => {
 				if (node?.node_type === "trans") {
 					const values = data.translations?.[key];
 
-					return [key, values ?? value];
+					return [key, values ?? getTransDefault(languages)];
 				}
 
 				return [key, value];
