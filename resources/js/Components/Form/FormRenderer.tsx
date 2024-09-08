@@ -5,6 +5,7 @@ import { useLanguageContext } from "@narsil-localization/Components/Language/Lan
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
 import AsyncCombobox from "@narsil-ui/Components/Combobox/AsyncCombobox";
+import Badge from "@narsil-ui/Components/Badge/Badge";
 import Card from "@narsil-ui/Components/Card/Card";
 import CardContent from "@narsil-ui/Components/Card/CardContent";
 import CardFooter from "@narsil-ui/Components/Card/CardFooter";
@@ -164,7 +165,6 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 										>
 											{node.label + trans(":")}
 										</FormLabel>
-
 										<FormControl>
 											<Switch
 												{...field}
@@ -177,25 +177,30 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 									</FormItem>
 								);
 							case "trans":
+								const value = control._formValues[node.identifier];
+
 								return (
 									<FormItem>
-										<div className='flex items-center gap-x-1'>
-											<FormLabel
-												htmlFor={id}
-												required={node.required}
-											>
-												{node.label}
-											</FormLabel>
-											<TooltipWrapper tooltip={trans("Translatable")}>
-												<Languages className='h-4 w-4' />
-											</TooltipWrapper>
+										<div className='flex items-center justify-between'>
+											<div className='flex items-center gap-x-1'>
+												<FormLabel
+													htmlFor={id}
+													required={node.required}
+												>
+													{node.label}
+												</FormLabel>
+												<TooltipWrapper tooltip={trans("Translatable")}>
+													<Languages className='h-4 w-4' />
+												</TooltipWrapper>
+											</div>
+											{value.id ? <Badge variant='secondary'>{value.id}</Badge> : null}
 										</div>
 										<FormControl>
 											<Input
 												{...field}
 												id={id}
 												autoComplete={node.auto_complete}
-												placeholder={control._formValues[node.identifier]?.default_value}
+												placeholder={value?.default_value}
 												type={node.type ?? "text"}
 											/>
 										</FormControl>
