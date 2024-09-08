@@ -49,7 +49,12 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 				return null;
 			}
 
-			const id = node.node_type === "trans" ? `${node.identifier}.values.${contextLanguage.id}` : node.identifier;
+			const id =
+				node.node_type === "trans"
+					? contextLanguage
+						? `${node.identifier}.values.${contextLanguage.id}`
+						: `${node.identifier}.default_value`
+					: node.identifier;
 
 			return (
 				<FormField
