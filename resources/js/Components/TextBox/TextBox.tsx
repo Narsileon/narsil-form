@@ -23,7 +23,7 @@ type TextBoxProps = Partial<EditorOptions> &
 	};
 
 const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
-	({ className, data, href, id, method, value, onChange, ...props }, ref) => {
+	({ className, data, href, id, method, placeholder, value, onChange, ...props }, ref) => {
 		const { trans } = useTranslationsStore();
 
 		const sendLabel = trans("Send");
@@ -79,6 +79,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 					<EditorContent
 						id={id}
 						editor={editor}
+						placeholder={placeholder}
 						onFocus={() => setIsFocused(true)}
 						onBlur={() => setIsFocused(false)}
 					/>
