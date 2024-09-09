@@ -1,15 +1,15 @@
-import { BubbleMenu, EditorContent, EditorOptions, FloatingMenu, useEditor } from "@tiptap/react";
 import { cn } from "@narsil-ui/Components";
+import { EditorContent, EditorOptions, useEditor } from "@tiptap/react";
 import * as React from "react";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import InputPlaceholders, { InputPlaceholderType } from "@narsil-forms/Components/Input/InputPlaceholders";
-import RichTextEditorToolbar from "./RichTextEditorToolbar";
 import StarterKit from "@tiptap/starter-kit";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
+import TipTapToolbar from "@narsil-forms/Components/TipTap/TipTapToolbar";
 import Underline from "@tiptap/extension-underline";
 
 type RichTextEditorProps = Partial<EditorOptions> & {
@@ -69,20 +69,12 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 				ref={ref}
 				className='flex flex-col gap-y-4'
 			>
-				{toolbar && editor?.isEditable ? <RichTextEditorToolbar editor={editor} /> : null}
+				{toolbar && editor?.isEditable ? <TipTapToolbar editor={editor} /> : null}
 
 				<EditorContent
 					id={id}
 					editor={editor}
 				/>
-
-				<FloatingMenu editor={editor}>
-					<></>
-				</FloatingMenu>
-
-				<BubbleMenu editor={editor}>
-					<></>
-				</BubbleMenu>
 
 				{placeholders ? (
 					<InputPlaceholders

@@ -1,4 +1,5 @@
 import { Editor } from "@tiptap/react";
+import { tipTapColors } from "./tipTapUtils";
 import Button from "@narsil-ui/Components/Button/Button";
 import DropdownMenu from "@narsil-ui/Components/DropdownMenu/DropdownMenu";
 import DropdownMenuContent from "@narsil-ui/Components/DropdownMenu/DropdownMenuContent";
@@ -38,33 +39,14 @@ import {
 	Undo,
 } from "lucide-react";
 
-export interface RichTextEditorToolbarProps {
+export interface TipTapToolbarProps {
 	editor: Editor | null;
 }
 
-const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
+const TipTapToolbar = ({ editor }: TipTapToolbarProps) => {
 	if (!editor) {
 		return null;
 	}
-
-	const colors = [
-		"#000000", // black
-		"#EF4444", // red-500
-		"#F97316", // orange-500
-		"#F59E0B", // amber-500
-		"#EAB308", // yellow-500
-		"#84CC16", // lime-500
-		"#22C55E", // green-500
-		"#10B981", // emerald-500
-		"#14B8A6", // teal-500
-		"#06B6D4", // cyan-500
-		"#0EA5E9", // sky-500
-		"#3B82F6", // blue-500
-		"#6366F1", // indigo-500
-		"#8B5CF6", // violet-500
-		"#A855F7", // purple-500
-		"#FFFFFF", // white
-	];
 
 	return (
 		<div className='flex flex-wrap items-center'>
@@ -119,13 +101,13 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				</PopoverTrigger>
 
 				<PopoverContent className='grid grid-cols-4'>
-					{colors.map((color, index) => {
+					{tipTapColors.map((color) => {
 						return (
 							<Button
 								size='icon'
 								variant='ghost'
 								onClick={() => editor.chain().focus().setColor(color).run()}
-								key={index}
+								key={color}
 							>
 								<div
 									className='h-6 w-6 rounded'
@@ -151,13 +133,13 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 				</PopoverTrigger>
 
 				<PopoverContent className='grid grid-cols-4'>
-					{colors.map((color, index) => {
+					{tipTapColors.map((color) => {
 						return (
 							<Button
 								size='icon'
 								variant='ghost'
 								onClick={() => editor.chain().focus().setHighlight({ color: color }).run()}
-								key={index}
+								key={color}
 							>
 								<div
 									className='h-6 w-6 rounded'
@@ -370,4 +352,4 @@ const RichTextEditorToolbar = ({ editor }: RichTextEditorToolbarProps) => {
 	);
 };
 
-export default RichTextEditorToolbar;
+export default TipTapToolbar;
