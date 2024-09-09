@@ -4,6 +4,7 @@ import * as React from "react";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import InputPlaceholders, { InputPlaceholderType } from "@narsil-forms/Components/Input/InputPlaceholders";
+import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
@@ -15,6 +16,7 @@ import Underline from "@tiptap/extension-underline";
 type RichTextEditorProps = Partial<EditorOptions> & {
 	className?: string;
 	id?: string;
+	placeholder?: string;
 	placeholders?: InputPlaceholderType[];
 	toolbar?: boolean;
 	value: string;
@@ -22,11 +24,14 @@ type RichTextEditorProps = Partial<EditorOptions> & {
 };
 
 const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
-	({ className, id, placeholders, toolbar = true, value, onChange, ...props }, ref) => {
+	({ className, id, placeholder, placeholders, toolbar = true, value, onChange, ...props }, ref) => {
 		const extensions = [
 			Color,
 			Highlight.configure({
 				multicolor: true,
+			}),
+			Placeholder.configure({
+				placeholder: placeholder,
 			}),
 			StarterKit,
 			Subscript,

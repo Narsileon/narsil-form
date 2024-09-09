@@ -7,6 +7,7 @@ import * as React from "react";
 import Button from "@narsil-ui/Components/Button/Button";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
+import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import TipTapBubbleMenu from "@narsil-forms/Components/TipTap/TipTapBubbleMenu";
@@ -34,6 +35,9 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 			Color,
 			Highlight.configure({
 				multicolor: true,
+			}),
+			Placeholder.configure({
+				placeholder: placeholder,
 			}),
 			StarterKit,
 			TextStyle,
@@ -79,7 +83,6 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 					<EditorContent
 						id={id}
 						editor={editor}
-						placeholder={placeholder}
 						onFocus={() => setIsFocused(true)}
 						onBlur={() => setIsFocused(false)}
 					/>
