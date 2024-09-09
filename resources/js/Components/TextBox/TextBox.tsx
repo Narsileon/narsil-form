@@ -10,6 +10,7 @@ import Highlight from "@tiptap/extension-highlight";
 import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import TipTapBubbleMenu from "@narsil-forms/Components/TipTap/TipTapBubbleMenu";
+import TooltipWrapper from "@narsil-ui/Components/Tooltip/TooltipWrapper";
 import type { InertiaLinkProps } from "@inertiajs/react";
 import Underline from "@tiptap/extension-underline";
 
@@ -24,6 +25,8 @@ type TextBoxProps = Partial<EditorOptions> &
 const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 	({ className, data, href, id, method, value, onChange, ...props }, ref) => {
 		const { trans } = useTranslationsStore();
+
+		const sendLabel = trans("Send");
 
 		const [isFocused, setIsFocused] = React.useState(false);
 
@@ -82,20 +85,22 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 					<TipTapBubbleMenu editor={editor} />
 				</div>
 				<div className='flex flex-col justify-end'>
-					<Button
-						aria-label={trans("Send")}
-						asChild={true}
-						size='icon'
-					>
-						<Link
-							as='button'
-							data={data}
-							href={href}
-							method={method}
+					<TooltipWrapper tooltip={sendLabel}>
+						<Button
+							aria-label={sendLabel}
+							asChild={true}
+							size='icon'
 						>
-							<Send className='h-6 w-6' />
-						</Link>
-					</Button>
+							<Link
+								as='button'
+								data={data}
+								href={href}
+								method={method}
+							>
+								<Send className='h-6 w-6' />
+							</Link>
+						</Button>
+					</TooltipWrapper>
 				</div>
 			</div>
 		);
