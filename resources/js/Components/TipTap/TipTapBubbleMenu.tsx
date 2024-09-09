@@ -1,3 +1,4 @@
+import { Baseline, Bold, Italic, PencilLine, Strikethrough, Underline } from "lucide-react";
 import { BubbleMenu, Editor } from "@tiptap/react";
 import { tipTapColors } from "./tipTapUtils";
 import Button from "@narsil-ui/Components/Button/Button";
@@ -6,8 +7,6 @@ import PopoverContent from "@narsil-ui/Components/Popover/PopoverContent";
 import PopoverTrigger from "@narsil-ui/Components/Popover/PopoverTrigger";
 import Separator from "@narsil-ui/Components/Separator/Separator";
 import Toggle from "@narsil-ui/Components/Toggle/Toggle";
-
-import { Baseline, Bold, Italic, PencilLine, Strikethrough, Underline } from "lucide-react";
 
 export interface TipTapBubbleMenuProps {
 	editor: Editor | null;
@@ -19,7 +18,10 @@ const TipTapBubbleMenu = ({ editor }: TipTapBubbleMenuProps) => {
 	}
 
 	return (
-		<BubbleMenu editor={editor}>
+		<BubbleMenu
+			editor={editor}
+			className='text-card-popover bg-popover flex gap-x-1 rounded-md border p-1 shadow-md'
+		>
 			<Toggle
 				aria-label='Toggle bold'
 				pressed={editor.isActive("bold")}
@@ -60,6 +62,7 @@ const TipTapBubbleMenu = ({ editor }: TipTapBubbleMenuProps) => {
 			<Popover>
 				<PopoverTrigger asChild={true}>
 					<Button
+						className='w-8 min-w-8'
 						size='icon'
 						variant='ghost'
 					>
@@ -70,7 +73,7 @@ const TipTapBubbleMenu = ({ editor }: TipTapBubbleMenuProps) => {
 					</Button>
 				</PopoverTrigger>
 
-				<PopoverContent className='grid grid-cols-4'>
+				<PopoverContent className='grid w-fit grid-cols-4'>
 					{tipTapColors.map((color) => {
 						return (
 							<Button
@@ -92,6 +95,7 @@ const TipTapBubbleMenu = ({ editor }: TipTapBubbleMenuProps) => {
 			<Popover>
 				<PopoverTrigger asChild={true}>
 					<Button
+						className='w-8 min-w-8'
 						size='icon'
 						variant='ghost'
 					>
@@ -102,7 +106,7 @@ const TipTapBubbleMenu = ({ editor }: TipTapBubbleMenuProps) => {
 					</Button>
 				</PopoverTrigger>
 
-				<PopoverContent className='grid grid-cols-4'>
+				<PopoverContent className='grid w-fit grid-cols-4'>
 					{tipTapColors.map((color) => {
 						return (
 							<Button

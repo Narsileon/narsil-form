@@ -1,15 +1,13 @@
 import { cn } from "@narsil-ui/Components";
 import { EditorContent, EditorOptions, useEditor } from "@tiptap/react";
+import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
+import Button from "@narsil-ui/Components/Button/Button";
 import Color from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import StarterKit from "@tiptap/starter-kit";
-import Subscript from "@tiptap/extension-subscript";
-import Superscript from "@tiptap/extension-superscript";
-import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
 import TipTapBubbleMenu from "@narsil-forms/Components/TipTap/TipTapBubbleMenu";
-import TipTapToolbar from "@narsil-forms/Components/TipTap/TipTapToolbar";
 import Underline from "@tiptap/extension-underline";
 
 type TextBoxProps = Partial<EditorOptions> & {
@@ -20,17 +18,16 @@ type TextBoxProps = Partial<EditorOptions> & {
 };
 
 const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(({ className, id, value, onChange, ...props }, ref) => {
+	const { trans } = useTranslationsStore();
+
+	const [isFocused, setIsFocused] = React.useState(false);
+
 	const extensions = [
 		Color,
 		Highlight.configure({
 			multicolor: true,
 		}),
 		StarterKit,
-		Subscript,
-		Superscript,
-		TextAlign.configure({
-			types: ["heading", "paragraph"],
-		}),
 		TextStyle,
 		Underline,
 	];
@@ -42,10 +39,9 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(({ className, id,
 			attributes: {
 				class: cn(
 					"prose max-w-none text-foreground !whitespace-normal",
-					"rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground",
-					"focus-visible:outline-none focus-visible:border-primary-highlight",
 					"disabled:cursor-not-allowed disabled:opacity-50",
-					className
+					"focus:outline-none",
+					"placeholder:text-muted-foreground"
 				),
 			},
 		},
@@ -64,16 +60,25 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(({ className, id,
 	return (
 		<div
 			ref={ref}
-			className='flex flex-col gap-y-4'
+			className={cn(
+				"border-border bg-background ring-offset-background flex grow items-stretch gap-x-4 rounded-md border px-4 py-2 text-sm",
+				{ "border-primary-highlight": isFocused },
+				className
+			)}
+			onClick={() => editor?.commands.focus()}
 		>
-			{toolbar && editor?.isEditable ? <TipTapToolbar editor={editor} /> : null}
-
-			<EditorContent
-				id={id}
-				editor={editor}
-			/>
-
-			<TipTapBubbleMenu editor={editor} />
+			<div className='grow'>
+				<EditorContent
+					id={id}
+					editor={editor}
+					onFocus={() => setIsFocused(true)}
+					onBlur={() => setIsFocused(false)}
+				/>
+				<TipTapBubbleMenu editor={editor} />
+			</div>
+			<div className='flex flex-col justify-end'>
+				<Button>{trans("Send")}</Button>
+			</div>
 		</div>
 	);
 });
