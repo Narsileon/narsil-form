@@ -75,7 +75,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 				)}
 				onClick={() => editor?.commands.focus()}
 			>
-				<div className='grow'>
+				<div className='grow overflow-hidden'>
 					<EditorContent
 						id={id}
 						editor={editor}
