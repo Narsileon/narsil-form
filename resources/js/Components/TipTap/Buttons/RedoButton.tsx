@@ -22,6 +22,7 @@ const RedoButton = React.forwardRef<HTMLButtonElement, RedoButtonProps>(({ edito
 				aria-label={label}
 				disabled={!editor.can().chain().focus().redo().run()}
 				size='icon'
+				type='button'
 				variant='ghost'
 				onClick={() => editor.chain().focus().redo().run()}
 				{...props}

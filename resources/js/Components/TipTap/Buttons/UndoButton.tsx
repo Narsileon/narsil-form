@@ -22,6 +22,7 @@ const UndoButton = React.forwardRef<HTMLButtonElement, UndoButtonProps>(({ edito
 				aria-label={label}
 				disabled={!editor.can().chain().focus().undo().run()}
 				size='icon'
+				type='button'
 				variant='ghost'
 				onClick={() => editor.chain().focus().undo().run()}
 				{...props}
