@@ -73,7 +73,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"border-border bg-background ring-offset-background flex grow items-stretch gap-x-3.5 rounded-md border px-3.5 py-2 text-sm",
+					"border-border bg-background ring-offset-background flex grow items-stretch gap-x-3.5 rounded-md border py-2 pl-3.5 pr-2 text-sm",
 					{ "border-primary-highlight": isFocused },
 					className
 				)}
