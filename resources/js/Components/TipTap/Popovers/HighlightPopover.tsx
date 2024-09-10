@@ -20,10 +20,6 @@ const HighlightPopover = React.forwardRef<HTMLButtonElement, HighlightPopoverPro
 
 	const highlightLabel = trans("editor.highlight");
 
-	if (!editor) {
-		return null;
-	}
-
 	return (
 		<Popover>
 			<TooltipWrapper tooltip={highlightLabel}>

@@ -13,7 +13,7 @@ export interface UnderlineToggleProps extends ToggleProps {
 const UnderlineToggle = React.forwardRef<HTMLButtonElement, UnderlineToggleProps>(({ editor, ...props }, ref) => {
 	const { trans } = useTranslationsStore();
 
-	const label = trans("editor.toggle_underline");
+	const label = trans("editor.underline");
 
 	return (
 		<TooltipWrapper tooltip={label}>

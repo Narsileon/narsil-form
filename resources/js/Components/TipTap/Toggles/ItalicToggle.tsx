@@ -13,7 +13,7 @@ export interface ItalicToggleProps extends ToggleProps {
 const ItalicToggle = React.forwardRef<HTMLButtonElement, ItalicToggleProps>(({ editor, ...props }, ref) => {
 	const { trans } = useTranslationsStore();
 
-	const label = trans("editor.toggle_italic");
+	const label = trans("editor.italic");
 
 	return (
 		<TooltipWrapper tooltip={label}>

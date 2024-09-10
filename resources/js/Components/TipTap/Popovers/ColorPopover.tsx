@@ -20,10 +20,6 @@ const ColorPopover = React.forwardRef<HTMLButtonElement, ColorPopoverProps>(({ e
 
 	const textColorLabel = trans("editor.text_color");
 
-	if (!editor) {
-		return null;
-	}
-
 	return (
 		<Popover>
 			<TooltipWrapper tooltip={textColorLabel}>

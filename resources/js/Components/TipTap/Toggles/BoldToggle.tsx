@@ -13,7 +13,7 @@ export interface BoldToggleProps extends ToggleProps {
 const BoldToggle = React.forwardRef<HTMLButtonElement, BoldToggleProps>(({ editor, ...props }, ref) => {
 	const { trans } = useTranslationsStore();
 
-	const label = trans("editor.toggle_bold");
+	const label = trans("editor.bold");
 
 	return (
 		<TooltipWrapper tooltip={label}>
