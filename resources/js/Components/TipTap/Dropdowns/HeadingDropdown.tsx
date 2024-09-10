@@ -15,7 +15,7 @@ export interface HeadingDropdownProps extends DropdownMenuTriggerProps {
 	editor: Editor;
 }
 
-const HeadingDropdown = React.forwardRef<HTMLButtonElement, HeadingDropdownProps>(({ editor }, ref) => {
+const HeadingDropdown = React.forwardRef<HTMLButtonElement, HeadingDropdownProps>(({ editor, ...props }, ref) => {
 	const { trans } = useTranslationsStore();
 
 	const headingLabel = trans("editor.heading");
@@ -38,6 +38,7 @@ const HeadingDropdown = React.forwardRef<HTMLButtonElement, HeadingDropdownProps
 						aria-label={headingLabel}
 						size='icon'
 						variant='ghost'
+						{...props}
 					>
 						<Heading className='h-4 w-4' />
 					</Button>

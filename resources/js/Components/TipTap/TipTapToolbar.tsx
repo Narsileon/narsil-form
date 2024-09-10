@@ -1,4 +1,6 @@
+import { cn } from "@narsil-ui/Components";
 import { Editor } from "@tiptap/react";
+import * as React from "react";
 import AlignCenterToggle from "./Toggles/AlignCenterToggle";
 import AlignJustifyToggle from "./Toggles/AllignJustifyToggle";
 import AlignLeftToggle from "./Toggles/AlignLeftToggle";
@@ -20,17 +22,21 @@ import SuperscriptToggle from "./Toggles/SuperscriptToggle";
 import UnderlineToggle from "./Toggles/UnderlineToggle";
 import UndoButton from "./Buttons/UndoButton";
 
-export interface TipTapToolbarProps {
+export interface TipTapToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
 	editor: Editor | null;
 }
 
-const TipTapToolbar = ({ editor }: TipTapToolbarProps) => {
+const TipTapToolbar = React.forwardRef<HTMLDivElement, TipTapToolbarProps>(({ className, editor, ...props }, ref) => {
 	if (!editor) {
 		return null;
 	}
 
 	return (
-		<div className='flex flex-wrap items-center'>
+		<div
+			ref={ref}
+			className={cn("flex flex-wrap items-center", className)}
+			{...props}
+		>
 			<BoldToggle editor={editor} />
 			<ItalicToggle editor={editor} />
 			<UnderlineToggle editor={editor} />
@@ -88,6 +94,6 @@ const TipTapToolbar = ({ editor }: TipTapToolbarProps) => {
 			<RedoButton editor={editor} />
 		</div>
 	);
-};
+});
 
 export default TipTapToolbar;
