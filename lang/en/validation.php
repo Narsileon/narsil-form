@@ -167,6 +167,7 @@ return [
         'language'      => 'Language',
         'last_editor'   => 'Last editor',
         'locale'        => 'Locale',
+        'model_id'      => 'Model ID',
         'model_type'    => 'Model type',
         'model'         => 'Model',
         'name'          => 'Name',
