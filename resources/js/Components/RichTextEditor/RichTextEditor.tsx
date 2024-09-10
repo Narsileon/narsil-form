@@ -31,6 +31,8 @@ const RichTextEditor = React.forwardRef<HTMLDivElement, RichTextEditorProps>(
 				multicolor: true,
 			}),
 			Placeholder.configure({
+				emptyEditorClass:
+					"before:pointer-events-none before:float-left before:h-0 before:text-gray-400 before:content-[attr(data-placeholder)]",
 				placeholder: placeholder,
 			}),
 			StarterKit,
