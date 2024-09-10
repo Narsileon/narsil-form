@@ -59,7 +59,7 @@ const ColorPopover = React.forwardRef<HTMLButtonElement, ColorPopoverProps>(({ e
 									onClick={() => editor.chain().focus().setColor(colorValue).run()}
 								>
 									<div
-										className='h-6 w-6 rounded'
+										className='border-border h-6 w-6 rounded border'
 										style={{ backgroundColor: colorValue }}
 									/>
 								</Button>
@@ -72,7 +72,7 @@ const ColorPopover = React.forwardRef<HTMLButtonElement, ColorPopoverProps>(({ e
 					className='w-full'
 					onClick={() => editor.commands.unsetColor()}
 				>
-					{trans("Clear")}
+					{trans("Reset")}
 				</Button>
 			</PopoverContent>
 		</Popover>

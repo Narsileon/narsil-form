@@ -59,7 +59,7 @@ const HighlightPopover = React.forwardRef<HTMLButtonElement, HighlightPopoverPro
 									onClick={() => editor.chain().focus().setHighlight({ color: colorValue }).run()}
 								>
 									<div
-										className='h-6 w-6 rounded'
+										className='border-border h-6 w-6 rounded border'
 										style={{ backgroundColor: colorValue }}
 									/>
 								</Button>
@@ -72,7 +72,7 @@ const HighlightPopover = React.forwardRef<HTMLButtonElement, HighlightPopoverPro
 					className='w-full'
 					onClick={() => editor.commands.unsetHighlight()}
 				>
-					{trans("Clear")}
+					{trans("Reset")}
 				</Button>
 			</PopoverContent>
 		</Popover>
