@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'highlight'            => 'Markierung',
+    'redo'                 => 'Wiederherstellen',
+    'text_color'           => 'Textfarbe',
+    'toggle_align_center'  => 'Zentriert umschalten',
+    'toggle_align_justify' => 'Blocksatz umschalten',
+    'toggle_align_left'    => 'Linksbündig umschalten',
+    'toggle_align_right'   => 'Rechtsbündig umschalten',
+    'toggle_bold'          => 'Fett umschalten',
+    'toggle_code'          => 'Codeblock umschalten',
+    'toggle_heading_1'     => 'Überschrift 1 umschalten',
+    'toggle_heading_2'     => 'Überschrift 2 umschalten',
+    'toggle_heading_3'     => 'Überschrift 3 umschalten',
+    'toggle_heading_4'     => 'Überschrift 4 umschalten',
+    'toggle_heading_5'     => 'Überschrift 5 umschalten',
+    'toggle_heading_6'     => 'Überschrift 6 umschalten',
+    'toggle_italic'        => 'Kursiv umschalten',
+    'toggle_list'          => 'Liste umschalten',
+    'toggle_ordered_list'  => 'Nummerierte Liste umschalten',
+    'toggle_quote'         => 'Zitat umschalten',
+    'toggle_strike'        => 'Durchgestrichen umschalten',
+    'toggle_subscript'     => 'Tiefgestellt umschalten',
+    'toggle_superscript'   => 'Hochgestellt umschalten',
+    'toggle_underline'     => 'Unterstrichen umschalten',
+    'undo'                 => 'Rückgängig machen',
+];

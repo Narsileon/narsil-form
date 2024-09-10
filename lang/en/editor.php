@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'highlight'            => 'Highlight',
+    'redo'                 => 'Redo',
+    'text_color'           => 'Text color',
+    'toggle_align_center'  => 'Toggle align center',
+    'toggle_align_justify' => 'Toggle align justify',
+    'toggle_align_left'    => 'Toggle align left',
+    'toggle_align_right'   => 'Toggle align right',
+    'toggle_bold'          => 'Toggle bold',
+    'toggle_code'          => 'Toggle code block',
+    'toggle_heading_1'     => 'Toggle heading 1',
+    'toggle_heading_2'     => 'Toggle heading 2',
+    'toggle_heading_3'     => 'Toggle heading 3',
+    'toggle_heading_4'     => 'Toggle heading 4',
+    'toggle_heading_5'     => 'Toggle heading 5',
+    'toggle_heading_6'     => 'Toggle heading 6',
+    'toggle_italic'        => 'Toggle italic',
+    'toggle_list'          => 'Toggle list',
+    'toggle_ordered_list'  => 'Toggle ordered list',
+    'toggle_quote'         => 'Toggle quote',
+    'toggle_strike'        => 'Toggle strike',
+    'toggle_subscript'     => 'Toggle subscript',
+    'toggle_superscript'   => 'Toggle superscript',
+    'toggle_underline'     => 'Toggle underline',
+    'undo'                 => 'Undo',
+];
