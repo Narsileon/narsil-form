@@ -49,6 +49,7 @@ export type FormNodeOptionModel = {
 
 export type FormResource<T> = Resource<T> & {
 	form: FormModel;
+	model: string;
 	slug: string;
 	title: string;
 };
