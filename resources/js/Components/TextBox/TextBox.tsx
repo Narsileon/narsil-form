@@ -1,6 +1,5 @@
 import { cn } from "@narsil-ui/Components";
 import { EditorContent, EditorOptions, useEditor } from "@tiptap/react";
-import { Link } from "@inertiajs/react";
 import { Send } from "lucide-react";
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
 import * as React from "react";
@@ -12,19 +11,18 @@ import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import TipTapBubbleMenu from "@narsil-forms/Components/TipTap/TipTapBubbleMenu";
 import TooltipWrapper from "@narsil-ui/Components/Tooltip/TooltipWrapper";
-import type { InertiaLinkProps } from "@inertiajs/react";
 import Underline from "@tiptap/extension-underline";
 
-type TextBoxProps = Partial<EditorOptions> &
-	InertiaLinkProps & {
-		className?: string;
-		id?: string;
-		value: string;
-		onChange?: (value: any) => void;
-	};
+type TextBoxProps = Partial<EditorOptions> & {
+	className?: string;
+	id?: string;
+	placeholder?: string;
+	value: string;
+	onChange?: (value: any) => void;
+};
 
 const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
-	({ className, data, href, id, method, placeholder, value, onChange, ...props }, ref) => {
+	({ className, id, placeholder, value, onChange, ...props }, ref) => {
 		const { trans } = useTranslationsStore();
 
 		const sendLabel = trans("Send");
@@ -94,17 +92,10 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 					<TooltipWrapper tooltip={sendLabel}>
 						<Button
 							aria-label={sendLabel}
-							asChild={true}
 							size='icon'
+							type='submit'
 						>
-							<Link
-								as='button'
-								data={data}
-								href={href}
-								method={method}
-							>
-								<Send className='h-6 w-6' />
-							</Link>
+							<Send className='h-6 w-6' />
 						</Button>
 					</TooltipWrapper>
 				</div>
