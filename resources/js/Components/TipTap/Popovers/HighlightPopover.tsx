@@ -74,7 +74,7 @@ const HighlightPopover = React.forwardRef<HTMLButtonElement, HighlightPopoverPro
 				<Separator />
 				<Button
 					className='w-full'
-					onClick={() => editor.chain().focus().unsetHighlight()}
+					onClick={() => editor.commands.unsetHighlight()}
 				>
 					{trans("Clear")}
 				</Button>

@@ -74,7 +74,7 @@ const ColorPopover = React.forwardRef<HTMLButtonElement, ColorPopoverProps>(({ e
 				<Separator />
 				<Button
 					className='w-full'
-					onClick={() => editor.chain().focus().unsetColor()}
+					onClick={() => editor.commands.unsetColor()}
 				>
 					{trans("Clear")}
 				</Button>
