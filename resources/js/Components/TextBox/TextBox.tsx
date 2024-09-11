@@ -36,7 +36,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 			}),
 			Placeholder.configure({
 				emptyEditorClass:
-					"before:pointer-events-none before:float-left before:h-0 before:text-muted-foreground before:content-[attr(data-placeholder)]",
+					"before:text-sm before:pointer-events-none before:float-left before:h-0 before:text-muted-foreground before:content-[attr(data-placeholder)]",
 				placeholder: placeholder,
 			}),
 			StarterKit,
@@ -72,8 +72,8 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"border-border bg-background ring-offset-background flex grow items-stretch gap-x-3.5 rounded-md border py-2 pl-3.5 pr-2 text-sm",
-					{ "border-primary-highlight": isFocused },
+					"border-border bg-background flex grow items-stretch gap-x-3.5 rounded-md border py-2 pl-3.5 pr-2 text-sm",
+					{ "ring-primary ring-2 ring-offset-2": isFocused },
 					className
 				)}
 				onClick={() => editor?.commands.focus()}
