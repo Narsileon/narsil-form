@@ -52,8 +52,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 					class: cn(
 						"prose max-w-none text-foreground !whitespace-normal",
 						"disabled:cursor-not-allowed disabled:opacity-50",
-						"focus:outline-none",
-						"placeholder:text-muted-foreground"
+						"focus:outline-none"
 					),
 				},
 			},
