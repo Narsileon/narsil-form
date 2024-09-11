@@ -10,7 +10,7 @@ import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import TextAlign from "@tiptap/extension-text-align";
 import TextStyle from "@tiptap/extension-text-style";
-import TipTapToolbar from "@narsil-forms/Components/TipTap/TipTapToolbar";
+import TipTapToolbar from "@narsil-tiptap/Components/TipTapToolbar";
 import Underline from "@tiptap/extension-underline";
 
 type RichTextEditorProps = Partial<EditorOptions> & {

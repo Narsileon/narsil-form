@@ -46,6 +46,10 @@
 		},
 		{
 			"type": "vcs",
+			"url": "git@github.com:Narsileon/narsil-tiptap.git"
+		},
+		{
+			"type": "vcs",
 			"url": "git@github.com:Narsileon/narsil-tree.git"
 		},
 		{
@@ -59,6 +63,7 @@
 		"narsil/localization": "dev-main",
 		"narsil/policies": "dev-main",
 		"narsil/tables": "dev-main",
+		"narsil/tiptap": "dev-main",
 		"narsil/ui": "dev-main"
 	},
 	"require-dev": {

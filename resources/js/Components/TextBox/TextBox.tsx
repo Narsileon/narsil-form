@@ -9,7 +9,7 @@ import Highlight from "@tiptap/extension-highlight";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
-import TipTapBubbleMenu from "@narsil-forms/Components/TipTap/TipTapBubbleMenu";
+import TipTapBubbleMenu from "@narsil-tiptap/Components/TipTapBubbleMenu";
 import TooltipWrapper from "@narsil-ui/Components/Tooltip/TooltipWrapper";
 import Underline from "@tiptap/extension-underline";
 
