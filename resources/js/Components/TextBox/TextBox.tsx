@@ -50,7 +50,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 			editorProps: {
 				attributes: {
 					class: cn(
-						"prose max-w-none text-foreground !whitespace-normal",
+						"prose max-w-none text-foreground !whitespace-normal text-sm",
 						"disabled:cursor-not-allowed disabled:opacity-50",
 						"focus:outline-none"
 					),
@@ -72,7 +72,7 @@ const TextBox = React.forwardRef<HTMLDivElement, TextBoxProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"border-border bg-background flex grow items-stretch gap-x-3.5 rounded-md border py-2 pl-3.5 pr-2 text-sm",
+					"border-border bg-background flex grow items-stretch gap-x-3.5 rounded-md border py-2 pl-3.5 pr-2",
 					{ "ring-primary ring-2 ring-offset-2": isFocused },
 					className
 				)}
