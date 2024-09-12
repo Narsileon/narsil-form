@@ -7,7 +7,7 @@ namespace Narsil\Forms\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Str;
-use Narsil\Forms\Http\Resources\FormResource;
+use Narsil\Forms\Http\Resources\Forms\FormResource;
 use Narsil\Forms\Services\FormService;
 use Narsil\Localization\Interfaces\IHasTranslations;
 use Narsil\Localization\Traits\HasTranslations;
