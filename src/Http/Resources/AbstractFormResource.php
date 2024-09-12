@@ -1,6 +1,6 @@
 <?php
 
-namespace Narsil\Forms\Builder;
+namespace Narsil\Forms\Http\Resources;
 
 #region USE
 
@@ -19,7 +19,7 @@ use Narsil\Localization\Traits\HasTranslations;
  *
  * @author Jonathan Rigaux
  */
-abstract class AbstractForm extends JsonResource
+abstract class AbstractFormResource extends JsonResource
 {
     #region CONSTRUCTOR
 
