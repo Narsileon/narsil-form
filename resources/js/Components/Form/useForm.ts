@@ -1,4 +1,5 @@
 import { FormModel, FormNodeModel } from "@narsil-forms/Types";
+import { get } from "lodash";
 import { getTransDefault, getTransSchema } from "./formSchemas";
 import { LanguageModel } from "@narsil-localization/Types";
 import { useForm as useReactForm } from "react-hook-form";
@@ -119,7 +120,7 @@ const useForm = ({ data = {}, form, languages = [] }: useFormProps) => {
 					return [key, values ?? getTransDefault(languages)];
 				}
 
-				return [key, value];
+				return [key, value ?? get(defaultValues, key)];
 			})
 		);
 	})();
