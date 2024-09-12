@@ -103,7 +103,7 @@ abstract class AbstractFormResource extends JsonResource
     {
         $form = $this->getForm();
         $meta = $this->getMeta();
-        $model = $this->resource::class;
+        $model = $this->resource ? $this->resource::class : null;
         $slug = $this->getSlug();
 
         return compact(
