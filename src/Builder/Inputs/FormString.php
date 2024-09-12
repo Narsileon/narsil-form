@@ -33,20 +33,6 @@ class FormString extends FormInput
     #region PUBLIC METHODS
 
     /**
-     * Sets the autoComplete attribute.
-     *
-     * @param string $autoComplete
-     *
-     * @return static Returns the current object instance.
-     */
-    final public function autoComplete(string $autoComplete): static
-    {
-        $this->formNode[FormNode::AUTO_COMPLETE] = $autoComplete;
-
-        return $this;
-    }
-
-    /**
      * Sets the maxLength attribute.
      *
      * @param integer $maxLength
