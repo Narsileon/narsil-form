@@ -4,6 +4,7 @@ namespace Narsil\Forms\Builder\Inputs;
 
 #region USE
 
+use Illuminate\Support\Arr;
 use Narsil\Forms\Builder\Inputs\FormInput;
 use Narsil\Forms\Enums\PreviewEnum;
 use Narsil\Forms\Models\FormNode;
@@ -63,9 +64,7 @@ class FormSelect extends FormInput
      */
     final public function fetch(string $fetch): static
     {
-        $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
-            self::FETCH => $fetch,
-        ]);
+        Arr::set($this->formNode, FormNode::PARAMETERS . '.' . self::FETCH, $fetch);
 
         return $this;
     }
@@ -79,9 +78,7 @@ class FormSelect extends FormInput
      */
     final public function labelKey(string $labelKey): static
     {
-        $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
-            self::LABEL_KEY => $labelKey,
-        ]);
+        Arr::set($this->formNode, FormNode::PARAMETERS . '.' . self::LABEL_KEY, $labelKey);
 
         return $this;
     }
@@ -109,9 +106,7 @@ class FormSelect extends FormInput
      */
     final public function preview(PreviewEnum $preview): static
     {
-        $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
-            self::PREVIEW => $preview->value,
-        ]);
+        Arr::set($this->formNode, FormNode::PARAMETERS . '.' . self::PREVIEW, $preview);
 
         return $this;
     }
@@ -125,9 +120,7 @@ class FormSelect extends FormInput
      */
     final public function valueKey(string $valueKey = 'value'): static
     {
-        $this->formNode[FormNode::PARAMETERS] = array_merge($this->formNode[FormNode::PARAMETERS] ?? [], [
-            self::VALUE_KEY => $valueKey,
-        ]);
+        Arr::set($this->formNode, FormNode::PARAMETERS . '.' . self::VALUE_KEY, $valueKey);
 
         return $this;
     }

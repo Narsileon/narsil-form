@@ -29,3 +29,13 @@ export const getTransSchema = (languages: LanguageModel[]) => {
 		),
 	});
 };
+
+export const getTreeSchema: () => z.ZodType<any> = () => {
+	return z.lazy(() =>
+		z.object({
+			children: z.array(getTreeSchema()),
+			collapsed: z.boolean().optional(),
+			id: z.number(),
+		})
+	);
+};

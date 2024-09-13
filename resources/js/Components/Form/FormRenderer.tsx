@@ -214,9 +214,15 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 								);
 							case "tree":
 								return (
-									<FormItem>
+									<FormItem className='w-full'>
 										<FormControl>
-											<SortableTree defaultItems={field.value} />
+											<SortableTree
+												collapsible={true}
+												labelKey={node.parameters?.label_key}
+												removable={true}
+												value={field.value}
+												setValue={field.onChange}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
