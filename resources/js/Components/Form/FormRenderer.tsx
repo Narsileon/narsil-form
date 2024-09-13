@@ -1,5 +1,6 @@
 import { FormNodeModel } from "@narsil-forms/Types";
 import { Languages } from "lucide-react";
+import { SortableTree } from "@narsil-tree/Components/Tree/Tree";
 import { useFormContext } from "react-hook-form";
 import { useLanguageContext } from "@narsil-localization/Components/Language/LanguageProvider";
 import { useTranslationsStore } from "@narsil-localization/Stores/translationStore";
@@ -208,6 +209,15 @@ const FormRenderer = ({ footer, nodes, options, parentNode }: FormRendererProps)
 											<FormDescription>{node.description}</FormDescription>
 										) : null}
 
+										<FormMessage />
+									</FormItem>
+								);
+							case "tree":
+								return (
+									<FormItem>
+										<FormControl>
+											<SortableTree defaultItems={field.value} />
+										</FormControl>
 										<FormMessage />
 									</FormItem>
 								);

@@ -10,7 +10,8 @@ export type FormNodeNodeType =
 	| "switch"
 	| "tab"
 	| "tabs"
-	| "trans";
+	| "trans"
+	| "tree";
 
 export type FormModel = {
 	active: boolean;
