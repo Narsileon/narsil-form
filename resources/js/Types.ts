@@ -9,6 +9,7 @@ export type FormNodeNodeType =
 	| "string"
 	| "switch"
 	| "tab"
+	| "table"
 	| "tabs"
 	| "trans"
 	| "tree";
