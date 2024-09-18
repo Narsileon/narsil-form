@@ -38,6 +38,7 @@ class FormNodeResource extends JsonResource
             FormNode::PARENT_ID => $this->{FormNode::PARENT_ID},
             FormNode::PARAMETERS => $this->{FormNode::PARAMETERS},
             FormNode::PLACEHOLDER => $this->{FormNode::PLACEHOLDER},
+            FormNode::READ_ONLY => $this->{FormNode::READ_ONLY},
             FormNode::REQUIRED => $this->{FormNode::REQUIRED},
             FormNode::TYPE => $this->{FormNode::TYPE},
         ];

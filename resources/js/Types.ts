@@ -43,6 +43,7 @@ export type FormNodeModel = {
 	parameters: any;
 	parent_id: number;
 	placeholder: string;
+	readOnly: boolean;
 	required: boolean;
 	type: string;
 	updated_at: string;

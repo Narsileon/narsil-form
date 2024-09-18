@@ -62,15 +62,15 @@ abstract class FormInput extends AbstractFormNode
     }
 
     /**
-     * Sets the readonly attribute.
+     * Sets the read only attribute.
      *
-     * @param boolean $readonly
+     * @param boolean $readOnly
      *
      * @return static Returns the current object instance.
      */
-    final public function readonly(bool $readonly = true): static
+    final public function readOnly(bool $readOnly = true): static
     {
-        $this->formNode[FormNode::READONLY] = $readonly;
+        $this->formNode[FormNode::READ_ONLY] = $readOnly;
 
         return $this;
     }

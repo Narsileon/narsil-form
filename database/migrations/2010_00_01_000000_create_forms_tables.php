@@ -113,7 +113,7 @@ return new class extends Migration
             $table
                 ->trans(FormNode::PLACEHOLDER);
             $table
-                ->boolean(FormNode::READONLY)
+                ->boolean(FormNode::READ_ONLY)
                 ->default(false);
             $table
                 ->boolean(FormNode::REQUIRED)

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Narsil\Localization\Casts\TransAttribute;
+use Narsil\Tables\Constants\Types;
 
 #endregion
 
@@ -32,8 +33,10 @@ class FormNode extends Model
         $this->casts = [
             self::DESCRIPTION => TransAttribute::class,
             self::LABEL => TransAttribute::class,
-            self::PARAMETERS => 'array',
+            self::PARAMETERS => Types::ARRAY,
             self::PLACEHOLDER => TransAttribute::class,
+            self::READ_ONLY => Types::BOOLEAN,
+            self::REQUIRED => Types::BOOLEAN,
         ];
 
         $this->guarded = [];
@@ -104,7 +107,7 @@ class FormNode extends Model
     /**
      * @var string
      */
-    final public const READONLY = 'readonly';
+    final public const READ_ONLY = 'readOnly';
     /**
      * @var string
      */
