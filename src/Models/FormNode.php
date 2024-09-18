@@ -104,6 +104,10 @@ class FormNode extends Model
     /**
      * @var string
      */
+    final public const READONLY = 'readonly';
+    /**
+     * @var string
+     */
     final public const REQUIRED = 'required';
     /**
      * @var string
