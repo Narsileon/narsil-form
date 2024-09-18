@@ -68,7 +68,7 @@ abstract class FormInput extends AbstractFormNode
      *
      * @return static Returns the current object instance.
      */
-    final public function readonly(bool $readonly): static
+    final public function readonly(bool $readonly = true): static
     {
         $this->formNode[FormNode::READONLY] = $readonly;
 
