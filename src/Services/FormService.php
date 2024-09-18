@@ -91,8 +91,9 @@ abstract class FormService
                 FormNode::MIN => $node[FormNode::MIN] ?? null,
                 FormNode::PARAMETERS => $node[FormNode::PARAMETERS] ?? null,
                 FormNode::PLACEHOLDER => $node[FormNode::PLACEHOLDER] ?? null,
-                FormNode::TYPE => $node[FormNode::TYPE] ?? null,
+                FormNode::READONLY => $node[FormNode::READONLY] ?? false,
                 FormNode::REQUIRED => $node[FormNode::REQUIRED] ?? false,
+                FormNode::TYPE => $node[FormNode::TYPE] ?? null,
             ]));
 
             if ($options = $node[FormNode::RELATIONSHIP_OPTIONS] ?? null)
