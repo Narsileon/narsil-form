@@ -5,6 +5,7 @@ namespace Narsil\Forms\Builder\Inputs;
 #region USE
 
 use Narsil\Forms\Builder\Inputs\FormInput;
+use Narsil\Forms\Models\FormNode;
 
 #endregion
 
@@ -25,6 +26,8 @@ class FormFile extends FormInput
     public function __construct(string $identifier)
     {
         parent::__construct('file', $identifier);
+
+        $this->formNode[FormNode::TYPE] = 'file';
     }
 
     #endregion
