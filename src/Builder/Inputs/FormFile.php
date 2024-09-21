@@ -4,6 +4,7 @@ namespace Narsil\Forms\Builder\Inputs;
 
 #region USE
 
+use Illuminate\Support\Arr;
 use Narsil\Forms\Builder\Inputs\FormInput;
 use Narsil\Forms\Models\FormNode;
 
@@ -28,6 +29,33 @@ class FormFile extends FormInput
         parent::__construct('file', $identifier);
 
         $this->formNode[FormNode::TYPE] = 'file';
+    }
+
+    #endregion
+
+    #region CONSTANTS
+
+    /**
+     * @var string
+     */
+    private const ACCEPT = 'accept';
+
+    #endregion
+
+    #region PUBLIC METHODS
+
+    /**
+     * Sets the accept attribute.
+     *
+     * @param integer $max
+     *
+     * @return static Returns the current object instance.
+     */
+    final public function accept(string $accept): static
+    {
+        Arr::set($this->formNode, FormNode::PARAMETERS . '.' . self::ACCEPT, $accept);
+
+        return $this;
     }
 
     #endregion
