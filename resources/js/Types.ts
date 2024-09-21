@@ -3,6 +3,7 @@ import type { Resource } from "@narsil-ui/Types";
 export type FormNodeNodeType =
 	| "card"
 	| "editor"
+	| "file"
 	| "number"
 	| "section"
 	| "select"
